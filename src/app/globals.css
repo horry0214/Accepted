@@ -18,9 +18,9 @@
   --color-border: var(--border);
   --color-accent: var(--accent);
   --color-accent-strong: var(--accent-strong);
-  --font-sans: "Segoe UI", "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei", sans-serif;
-  --font-serif: "Georgia", "Noto Serif SC", "Songti SC", serif;
-  --font-condensed: "Arial Narrow", "Helvetica Neue Condensed", "Microsoft YaHei", sans-serif;
+  --font-sans: var(--font-manrope), "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei", sans-serif;
+  --font-serif: var(--font-newsreader), "Noto Serif SC", "Songti SC", serif;
+  --font-condensed: var(--font-plex-condensed), "Microsoft YaHei", sans-serif;
 }
 
 .dark {
@@ -60,9 +60,54 @@ a {
   border: 1px solid var(--border);
   background: var(--card);
   backdrop-filter: blur(20px);
+  box-shadow: 0 20px 60px rgba(15, 23, 42, 0.05);
 }
 
 .section-title {
   font-family: var(--font-serif);
   letter-spacing: -0.025em;
+}
+
+.eyebrow {
+  font-family: var(--font-condensed);
+  letter-spacing: 0.28em;
+  text-transform: uppercase;
+}
+
+@keyframes deadline-shimmer {
+  0% {
+    transform: translateX(-140%);
+  }
+
+  100% {
+    transform: translateX(180%);
+  }
+}
+
+@keyframes deadline-pulse {
+  0%,
+  100% {
+    box-shadow: 0 0 0 0 rgba(244, 63, 94, 0.1);
+  }
+
+  50% {
+    box-shadow: 0 0 0 10px rgba(244, 63, 94, 0.02);
+  }
+}
+
+.deadline-progress-shimmer {
+  position: relative;
+  overflow: hidden;
+}
+
+.deadline-progress-shimmer::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(90deg, transparent 0%, rgba(255, 255, 255, 0.15) 42%, rgba(255, 255, 255, 0.65) 50%, rgba(255, 255, 255, 0.15) 58%, transparent 100%);
+  animation: deadline-shimmer 2.4s linear infinite;
+}
+
+.deadline-card-pulse {
+  animation: deadline-pulse 1.8s ease-in-out infinite;
 }

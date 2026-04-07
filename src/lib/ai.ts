@@ -11,9 +11,10 @@ const routePlanSchema = z.object({
       name: z.string(),
       fullName: z.string(),
       rank: z.string(),
+      coreRank: z.string().nullable(),
       category: z.string(),
       subcategories: z.array(z.string()),
-      nextDeadline: z.string().nullable(),
+      deadline: z.string().nullable(),
     }),
   ),
 });

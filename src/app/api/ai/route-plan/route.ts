@@ -21,7 +21,7 @@ export async function POST(request: Request) {
   const conferenceSummary = payload.conferences
     .map(
       (conference) =>
-        `${conference.name} | ${conference.rank} | ${conference.category} | ${conference.subcategories.join(", ")} | ${conference.nextDeadline ?? "TBD"}`,
+        `${conference.name} | CCF ${conference.rank} | CORE ${conference.coreRank ?? "N/A"} | ${conference.category} | ${conference.subcategories.join(", ")} | ${conference.deadline ?? "TBD"}`,
     )
     .join("\n");
 

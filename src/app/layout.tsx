@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import { IBM_Plex_Sans_Condensed, Manrope, Newsreader } from "next/font/google";
 
 import { Providers } from "@/components/providers";
 import { SiteHeader } from "@/components/ui/site-header";
@@ -7,12 +8,38 @@ import {
   getCurrentUser,
   getNotificationsForCurrentUser,
 } from "@/lib/data";
+import { getSiteUrl, homeKeywords } from "@/lib/site";
 
 import "./globals.css";
 
+const sans = Manrope({
+  subsets: ["latin"],
+  variable: "--font-manrope",
+  display: "swap",
+});
+
+const serif = Newsreader({
+  subsets: ["latin"],
+  variable: "--font-newsreader",
+  display: "swap",
+});
+
+const condensed = IBM_Plex_Sans_Condensed({
+  subsets: ["latin"],
+  weight: ["400", "500", "600"],
+  variable: "--font-plex-condensed",
+  display: "swap",
+});
+
 export const metadata: Metadata = {
-  title: "Accepted",
-  description: "CCF conference deadline tracker, community, and AI-assisted submission planning.",
+  metadataBase: new URL(getSiteUrl()),
+  title: {
+    default: "Accepted | CCF DDL Tracker and Research Community",
+    template: "%s | Accepted",
+  },
+  description:
+    "Accepted is a polished CCF DDL tracker for computer science researchers, with deadline intelligence, venue context, and community discussion.",
+  keywords: homeKeywords,
 };
 
 export default async function RootLayout({
@@ -30,7 +57,7 @@ export default async function RootLayout({
     <html
       lang="zh"
       suppressHydrationWarning
-      className="h-full antialiased"
+      className={`h-full antialiased ${sans.variable} ${serif.variable} ${condensed.variable}`}
     >
       <body className="min-h-full">
         <Providers>

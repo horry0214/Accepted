@@ -21,12 +21,16 @@ create table if not exists public.conferences (
   description text,
   website text,
   annual text,
+  core_rank text,
+  deadline timestamptz,
+  deadline_note text,
   last_deadline timestamptz,
   last_deadline_note text,
   next_deadline timestamptz,
   next_deadline_note text,
   deadline_timezone text,
   deadline_type text not null default 'unknown' check (deadline_type in ('aoe', 'conference_local', 'unknown')),
+  deadline_extension_probability numeric,
   conference_date text,
   conference_location text,
   page_limit text,
@@ -36,6 +40,12 @@ create table if not exists public.conferences (
   created_at timestamptz not null default timezone('utc', now()),
   updated_at timestamptz not null default timezone('utc', now())
 );
+
+alter table if exists public.conferences
+  add column if not exists core_rank text,
+  add column if not exists deadline timestamptz,
+  add column if not exists deadline_note text,
+  add column if not exists deadline_extension_probability numeric;
 
 create table if not exists public.threads (
   id uuid primary key default gen_random_uuid(),
@@ -70,6 +80,8 @@ create table if not exists public.votes (
 
 create index if not exists conferences_slug_idx on public.conferences (slug);
 create index if not exists conferences_rank_idx on public.conferences (ccf_rank);
+create index if not exists conferences_core_rank_idx on public.conferences (core_rank);
+create index if not exists conferences_latest_deadline_idx on public.conferences (deadline);
 create index if not exists conferences_deadline_idx on public.conferences (next_deadline);
 create index if not exists threads_conference_idx on public.threads (conference_id, created_at desc);
 create index if not exists comments_thread_idx on public.comments (thread_id, created_at asc);

@@ -15,6 +15,7 @@
 
 # next.js
 /.next/
+/.next-build-temp/
 /.next-build/
 /.next-verify/
 /out/
@@ -41,3 +42,6 @@ yarn-error.log*
 # typescript
 *.tsbuildinfo
 next-env.d.ts
+/ccfddl-archive/
+/ccfddl-main.zip
+/ccfddl-allconf.yml

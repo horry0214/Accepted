@@ -73,18 +73,58 @@ function sanitizeTimestamp(value) {
 
 const payload = source.conferences.map((conference) => ({
   ...conference,
-  last_deadline: sanitizeTimestamp(conference.last_deadline),
-  next_deadline: sanitizeTimestamp(conference.next_deadline),
+  deadline: sanitizeTimestamp(conference.deadline),
   metadata: conference.metadata ?? {},
 }));
 
-const { error } = await supabase
-  .from("conferences")
-  .upsert(payload, { onConflict: "slug" });
+const { error } = await supabase.from("conferences").upsert(payload, { onConflict: "slug" });
 
-if (error) {
-  console.error("Supabase seed failed:", error.message);
+if (!error) {
+  console.log(`Seeded ${payload.length} conferences into Supabase.`);
+  process.exit(0);
+}
+
+const legacyPayload = source.conferences.map((conference) => ({
+  slug: conference.slug,
+  name: conference.name,
+  full_name: conference.full_name,
+  ccf_rank: conference.ccf_rank,
+  category_name: conference.category_name,
+  category_description: conference.category_description,
+  subcategories: conference.subcategories ?? [],
+  description: conference.description,
+  website: conference.website,
+  annual: conference.annual,
+  last_deadline: sanitizeTimestamp(conference.deadline),
+  last_deadline_note: conference.deadline_note,
+  next_deadline: sanitizeTimestamp(conference.deadline),
+  next_deadline_note: conference.deadline_note,
+  deadline_timezone: conference.deadline_timezone,
+  deadline_type: conference.deadline_type,
+  conference_date: conference.conference_date,
+  conference_location: conference.conference_location,
+  page_limit: conference.page_limit,
+  acceptance_rate: conference.acceptance_rate,
+  source_last_modified: conference.source_last_modified,
+  metadata: {
+    ...(conference.metadata ?? {}),
+    deadline: sanitizeTimestamp(conference.deadline),
+    deadline_note: conference.deadline_note,
+    core_rank: conference.core_rank ?? null,
+    deadline_extension_probability: conference.deadline_extension_probability ?? null,
+  },
+}));
+
+const { error: legacyError } = await supabase
+  .from("conferences")
+  .upsert(legacyPayload, { onConflict: "slug" });
+
+if (legacyError) {
+  console.error("Supabase seed failed:", legacyError.message);
   process.exit(1);
 }
 
-console.log(`Seeded ${payload.length} conferences into Supabase.`);
+console.warn(
+  "Seeded conferences using the legacy conference schema. Run the updated SQL schema to persist deadline/core fields as first-class columns.",
+);
+console.log(`Seeded ${legacyPayload.length} conferences into Supabase.`);

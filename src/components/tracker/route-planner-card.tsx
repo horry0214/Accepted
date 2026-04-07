@@ -9,9 +9,10 @@ type Summary = {
   name: string;
   fullName: string;
   rank: string;
+  coreRank: string | null;
   category: string;
   subcategories: string[];
-  nextDeadline: string | null;
+  deadline: string | null;
 };
 
 export function RoutePlannerCard({
@@ -61,36 +62,36 @@ export function RoutePlannerCard({
   }
 
   return (
-    <section className="grid gap-6 lg:grid-cols-[1.1fr_0.9fr]">
-      <div className="panel rounded-[2rem] p-8">
+    <section id="planner" className="grid gap-6 lg:grid-cols-[1.1fr_0.9fr]">
+      <div className="panel rounded-[2.2rem] p-8">
         <div className="flex items-center gap-3">
           <div className="rounded-2xl bg-accent/12 p-3 text-accent">
             <Route className="size-5" />
           </div>
           <div>
-            <p className="font-condensed text-sm uppercase tracking-[0.24em] text-accent">
+            <p className="eyebrow text-xs text-accent">
               AI Matchmaker
             </p>
             <h2 className="section-title text-3xl font-semibold">Submission route planner</h2>
           </div>
         </div>
         <p className="mt-4 max-w-2xl text-sm leading-7 text-muted">
-          Paste your abstract, contribution summary, or keywords. The server route is ready for
-          OpenRouter or Minimax, and already receives a lightweight summary of the conference
-          catalog.
+          Turn a rough abstract, problem framing, or keyword set into a practical venue route. The
+          planner is meant to help you decide what is realistic now, what belongs in a second wave,
+          and where your work sounds strongest.
         </p>
 
         <form className="mt-6 space-y-4" onSubmit={handleSubmit}>
           <textarea
             value={abstractText}
             onChange={(event) => setAbstractText(event.target.value)}
-            placeholder="Paste your abstract or keywords here..."
+            placeholder="Paste your abstract, keywords, or a concise summary of your contribution..."
             className="min-h-48 w-full rounded-[1.75rem] border border-border bg-white/70 px-5 py-4 text-sm leading-7 outline-none ring-0 transition placeholder:text-muted focus:border-accent dark:bg-white/5"
           />
           <div className="flex flex-wrap items-center justify-between gap-3">
             <p className="text-sm text-muted">
               {isAuthenticated
-                ? "Authenticated users can invoke the AI planner."
+                ? "Signed-in researchers can generate a structured primary target and fallback route."
                 : "Sign in first to use the route planner."}
             </p>
             <button
@@ -105,10 +106,8 @@ export function RoutePlannerCard({
         </form>
       </div>
 
-      <div className="panel rounded-[2rem] p-8">
-        <p className="font-condensed text-sm uppercase tracking-[0.24em] text-accent">
-          Output
-        </p>
+      <div className="panel rounded-[2.2rem] p-8">
+        <p className="eyebrow text-xs text-accent">Output</p>
         {result ? (
           <div className="mt-6 space-y-5 text-sm leading-7">
             <div>
@@ -143,7 +142,7 @@ export function RoutePlannerCard({
         ) : (
           <div className="mt-6 rounded-[1.75rem] border border-dashed border-border px-5 py-10 text-sm leading-7 text-muted">
             {error ??
-              "The AI route planner is wired through a secure server endpoint. Add an OpenRouter or Minimax key to start getting structured target recommendations here."}
+              "Once an AI provider key is added, this panel will return a primary venue, fallback options, and timing advice aligned with the conference catalog."}
           </div>
         )}
       </div>

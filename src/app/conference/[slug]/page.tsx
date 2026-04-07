@@ -1,9 +1,64 @@
+import type { Metadata } from "next";
 import Link from "next/link";
 import { notFound } from "next/navigation";
 
+import { ConferenceDetailShell } from "@/components/conference/conference-detail-shell";
 import { CommunitySectionV2 } from "@/components/community/community-section-v2";
 import { getConferenceBySlug, getCurrentUser, getThreadsForConference } from "@/lib/data";
-import { abbreviateText, formatDeadlineForLocale, getTimeToDeadline } from "@/lib/utils";
+import { getSiteUrl } from "@/lib/site";
+import {
+  abbreviateText,
+  formatDeadlineForLocale,
+  formatProbability,
+  getDeadlineDisplayLabel,
+  getTimeToDeadline,
+} from "@/lib/utils";
+
+export async function generateMetadata({
+  params,
+}: {
+  params: Promise<{ slug: string }>;
+}): Promise<Metadata> {
+  const { slug } = await params;
+  const conference = await getConferenceBySlug(slug);
+
+  if (!conference) {
+    return { title: "Conference not found" };
+  }
+
+  const title = `${conference.name} Deadline, Acceptance Rate, and Discussion`;
+  const description = `${conference.name} (${conference.full_name}) on Accepted: deadline timing, CCF context, acceptance rate, page limit, and researcher discussion in one place.`;
+
+  return {
+    title,
+    description,
+    keywords: [
+      `${conference.name} deadline`,
+      `${conference.name} acceptance rate`,
+      `${conference.name} conference`,
+      conference.full_name,
+      conference.category_name,
+      "conference ranking",
+      "conference deadline",
+      "ccf ddl",
+    ],
+    alternates: {
+      canonical: `${getSiteUrl()}/conference/${conference.slug}`,
+    },
+    openGraph: {
+      title,
+      description,
+      url: `${getSiteUrl()}/conference/${conference.slug}`,
+      siteName: "Accepted",
+      type: "article",
+    },
+    twitter: {
+      card: "summary_large_image",
+      title,
+      description,
+    },
+  };
+}
 
 export default async function ConferenceDetailPage({
   params,
@@ -21,7 +76,19 @@ export default async function ConferenceDetailPage({
     getCurrentUser(),
     conference.id ? getThreadsForConference(conference.id) : Promise.resolve([]),
   ]);
-  const deadline = getTimeToDeadline(conference.next_deadline);
+  const deadline = getTimeToDeadline(conference.deadline, conference.deadline_timezone);
+  const deadlineLabel = getDeadlineDisplayLabel(conference.deadline, conference.deadline_timezone);
+
+  if (process.env.NEXT_PUBLIC_DETAIL_SHELL !== "legacy") {
+    return (
+      <ConferenceDetailShell
+        conference={conference}
+        threads={threads}
+        isAuthenticated={Boolean(user)}
+        currentUserId={user?.id ?? null}
+      />
+    );
+  }
 
   return (
     <main className="mx-auto flex w-full max-w-7xl flex-1 flex-col gap-6 px-4 py-8 sm:px-6 lg:px-8">
@@ -35,6 +102,11 @@ export default async function ConferenceDetailPage({
             <span className="rounded-full bg-accent/12 px-3 py-1 text-xs font-semibold uppercase tracking-[0.22em] text-accent">
               CCF-{conference.ccf_rank}
             </span>
+            {conference.core_rank ? (
+              <span className="rounded-full bg-slate-900/8 px-3 py-1 text-xs font-semibold uppercase tracking-[0.22em] text-slate-700 dark:bg-white/10 dark:text-slate-200">
+                CORE-{conference.core_rank}
+              </span>
+            ) : null}
             <span className="rounded-full border border-border px-3 py-1 text-xs uppercase tracking-[0.18em] text-muted">
               {conference.category_name}
             </span>
@@ -48,22 +120,27 @@ export default async function ConferenceDetailPage({
 
           <div className="mt-8 grid gap-4 md:grid-cols-2">
             <InfoTile
-              label="Next deadline"
+              label={deadlineLabel}
               value={formatDeadlineForLocale(
-                conference.next_deadline,
+                conference.deadline,
                 "en-US",
                 conference.deadline_timezone,
               )}
               hint={
                 deadline
-                  ? `${deadline.distance} · ${conference.next_deadline_note ?? conference.deadline_type}`
-                  : conference.next_deadline_note ?? "TBD"
+                  ? `${deadline.distance} · ${conference.deadline_note ?? conference.deadline_type}`
+                  : conference.deadline_note ?? "TBD"
               }
             />
             <InfoTile label="Conference date" value={abbreviateText(conference.conference_date)} />
             <InfoTile label="Location" value={abbreviateText(conference.conference_location)} />
             <InfoTile label="Acceptance rate" value={abbreviateText(conference.acceptance_rate)} />
             <InfoTile label="Page limit" value={abbreviateText(conference.page_limit)} />
+            <InfoTile label="CORE rank" value={abbreviateText(conference.core_rank)} />
+            <InfoTile
+              label="Extension likelihood"
+              value={formatProbability(conference.deadline_extension_probability)}
+            />
             <InfoTile label="Deadline basis" value={conference.deadline_type} />
           </div>
 
@@ -75,12 +152,12 @@ export default async function ConferenceDetailPage({
                 <dd>{abbreviateText(conference.annual)}</dd>
               </div>
               <div>
-                <dt className="text-muted">Last deadline</dt>
-                <dd>{abbreviateText(conference.last_deadline)}</dd>
+                <dt className="text-muted">Tracked deadline</dt>
+                <dd>{abbreviateText(conference.deadline)}</dd>
               </div>
               <div className="sm:col-span-2">
-                <dt className="text-muted">Source notes</dt>
-                <dd>{conference.next_deadline_note ?? conference.last_deadline_note ?? "TBD"}</dd>
+                <dt className="text-muted">Deadline notes</dt>
+                <dd>{conference.deadline_note ?? "TBD"}</dd>
               </div>
             </dl>
           </div>

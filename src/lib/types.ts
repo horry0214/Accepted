@@ -1,23 +1,25 @@
 export type Locale = "en" | "zh";
 
+export type CoreRank = "A*" | "A" | "B" | "C" | "Unranked";
+
 export type Conference = {
   id?: string;
   slug: string;
   name: string;
   full_name: string;
   ccf_rank: "A" | "B" | "C" | "Other";
+  core_rank: CoreRank | null;
   category_name: string;
   category_description: string | null;
   subcategories: string[];
   description: string | null;
   website: string | null;
   annual: string | null;
-  last_deadline: string | null;
-  last_deadline_note: string | null;
-  next_deadline: string | null;
-  next_deadline_note: string | null;
+  deadline: string | null;
+  deadline_note: string | null;
   deadline_timezone: string | null;
   deadline_type: "aoe" | "conference_local" | "unknown";
+  deadline_extension_probability: number | null;
   conference_date: string | null;
   conference_location: string | null;
   page_limit: string | null;

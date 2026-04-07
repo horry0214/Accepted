@@ -10,7 +10,23 @@ const outputPath = path.resolve(
 );
 
 const raw = JSON.parse(fs.readFileSync(sourcePath, "utf8"));
+const existingCatalog = readJsonIfExists(outputPath);
+const existingByIdentity = new Map(
+  (existingCatalog?.conferences ?? []).map((conference) => [getIdentityKey(conference), conference]),
+);
 const conferences = [];
+
+function readJsonIfExists(filePath) {
+  if (!fs.existsSync(filePath)) {
+    return null;
+  }
+
+  try {
+    return JSON.parse(fs.readFileSync(filePath, "utf8"));
+  } catch {
+    return null;
+  }
+}
 
 function slugify(value) {
   return value
@@ -40,14 +56,68 @@ function normalizeDeadline(value) {
     return null;
   }
 
-  if (/^\d{4}-\d{2}-\d{2}(?:[ T]\d{2}:\d{2}(?::\d{2})?)?$/.test(normalized)) {
-    return normalized;
-  }
-
-  return null;
+  return /^\d{4}-\d{2}-\d{2}(?:[ T]\d{2}:\d{2}(?::\d{2})?)?$/.test(normalized) ? normalized : null;
 }
 
-function inferDeadlineType(note) {
+function normalizeCoreRank(value) {
+  const normalized = normalizeText(value)?.toUpperCase().replace(/\s+/g, "");
+
+  switch (normalized) {
+    case "A*":
+    case "A":
+    case "B":
+    case "C":
+      return normalized;
+    case "UNRANKED":
+      return "Unranked";
+    default:
+      return null;
+  }
+}
+
+function normalizeDeadlineExtensionProbability(value) {
+  if (typeof value === "number" && Number.isFinite(value)) {
+    return Math.max(0, Math.min(100, Math.round(value * 10) / 10));
+  }
+
+  if (typeof value !== "string") {
+    return null;
+  }
+
+  const trimmed = value.trim();
+
+  if (!trimmed) {
+    return null;
+  }
+
+  const numeric = Number.parseFloat(trimmed.replace("%", ""));
+
+  if (!Number.isFinite(numeric)) {
+    return null;
+  }
+
+  const percentage = trimmed.includes("%") ? numeric : numeric <= 1 ? numeric * 100 : numeric;
+  return Math.max(0, Math.min(100, Math.round(percentage * 10) / 10));
+}
+
+function resolveDeadlineFields(record) {
+  const nextDeadline = normalizeDeadline(record.next_deadline);
+  const lastDeadline = normalizeDeadline(record.last_deadline);
+  const deadline = normalizeDeadline(record.deadline) ?? nextDeadline ?? lastDeadline;
+  const deadlineNote =
+    normalizeText(record.deadline_note) ??
+    (nextDeadline
+      ? normalizeText(record.next_deadline_note)
+      : normalizeText(record.last_deadline_note) ?? normalizeText(record.next_deadline_note));
+
+  return { deadline, deadlineNote };
+}
+
+function inferDeadlineType(note, deadlineTimezone) {
+  if (deadlineTimezone && /aoe/i.test(deadlineTimezone)) {
+    return "aoe";
+  }
+
   if (!note) {
     return "unknown";
   }
@@ -59,15 +129,28 @@ function inferDeadlineType(note) {
   return "conference_local";
 }
 
+function isBlank(value) {
+  return (
+    value === null ||
+    value === undefined ||
+    value === "" ||
+    (Array.isArray(value) && value.length === 0)
+  );
+}
+
+function asRecord(value) {
+  return value && typeof value === "object" && !Array.isArray(value) ? value : {};
+}
+
+function getIdentityKey(conference) {
+  return `${String(conference.full_name ?? "").toLowerCase()}::${String(conference.category_name ?? "").toLowerCase()}`;
+}
+
 function mergeConferenceRecords(primary, candidate) {
   const merged = { ...primary };
 
   for (const [key, value] of Object.entries(candidate)) {
-    if (
-      merged[key] === null ||
-      merged[key] === "" ||
-      (Array.isArray(merged[key]) && merged[key].length === 0)
-    ) {
+    if (isBlank(merged[key])) {
       merged[key] = value;
       continue;
     }
@@ -76,7 +159,15 @@ function mergeConferenceRecords(primary, candidate) {
       typeof value === "string" &&
       typeof merged[key] === "string" &&
       value.length > merged[key].length &&
-      ["website", "annual", "conference_date", "conference_location", "page_limit", "acceptance_rate"].includes(key)
+      [
+        "website",
+        "annual",
+        "conference_date",
+        "conference_location",
+        "page_limit",
+        "acceptance_rate",
+        "deadline_note",
+      ].includes(key)
     ) {
       merged[key] = value;
     }
@@ -86,6 +177,117 @@ function mergeConferenceRecords(primary, candidate) {
     ...(primary.metadata ?? {}),
     ...(candidate.metadata ?? {}),
   };
+
+  return merged;
+}
+
+function toMillis(value) {
+  const normalized = normalizeText(value);
+
+  if (!normalized) {
+    return null;
+  }
+
+  const timestamp = Date.parse(normalized);
+  return Number.isFinite(timestamp) ? timestamp : null;
+}
+
+function isExistingFresher(existingConference, generatedConference) {
+  const existingTime = toMillis(existingConference.source_last_modified);
+  const generatedTime = toMillis(generatedConference.source_last_modified);
+
+  if (existingTime === null) {
+    return false;
+  }
+
+  if (generatedTime === null) {
+    return true;
+  }
+
+  return existingTime > generatedTime;
+}
+
+const FRESHNESS_PREFERRED_FIELDS = [
+  "website",
+  "annual",
+  "deadline",
+  "deadline_note",
+  "deadline_timezone",
+  "deadline_type",
+  "conference_date",
+  "conference_location",
+  "page_limit",
+  "acceptance_rate",
+  "source_last_modified",
+  "core_rank",
+  "deadline_extension_probability",
+];
+
+function mergeWithExistingConference(generatedConference, existingConference) {
+  const merged = { ...existingConference, ...generatedConference };
+
+  for (const [key, value] of Object.entries(existingConference)) {
+    if (isBlank(merged[key]) && !isBlank(value)) {
+      merged[key] = value;
+    }
+  }
+
+  const existingDeadlineFields = resolveDeadlineFields(existingConference);
+  const existingCoreRank = normalizeCoreRank(existingConference.core_rank);
+  const existingExtensionProbability = normalizeDeadlineExtensionProbability(
+    existingConference.deadline_extension_probability,
+  );
+
+  if (isBlank(merged.deadline) && existingDeadlineFields.deadline) {
+    merged.deadline = existingDeadlineFields.deadline;
+  }
+
+  if (isBlank(merged.deadline_note) && existingDeadlineFields.deadlineNote) {
+    merged.deadline_note = existingDeadlineFields.deadlineNote;
+  }
+
+  if (isBlank(merged.core_rank) && existingCoreRank) {
+    merged.core_rank = existingCoreRank;
+  }
+
+  if (merged.deadline_extension_probability === null && existingExtensionProbability !== null) {
+    merged.deadline_extension_probability = existingExtensionProbability;
+  }
+
+  if (isExistingFresher(existingConference, generatedConference)) {
+    for (const key of FRESHNESS_PREFERRED_FIELDS) {
+      if (!isBlank(existingConference[key])) {
+        merged[key] = existingConference[key];
+      }
+    }
+
+    if (existingDeadlineFields.deadline) {
+      merged.deadline = existingDeadlineFields.deadline;
+    }
+
+    if (existingDeadlineFields.deadlineNote) {
+      merged.deadline_note = existingDeadlineFields.deadlineNote;
+    }
+
+    if (existingCoreRank) {
+      merged.core_rank = existingCoreRank;
+    }
+
+    if (existingExtensionProbability !== null) {
+      merged.deadline_extension_probability = existingExtensionProbability;
+    }
+  }
+
+  const generatedMetadata = asRecord(generatedConference.metadata);
+  const existingMetadata = asRecord(existingConference.metadata);
+  merged.metadata = isExistingFresher(existingConference, generatedConference)
+    ? { ...generatedMetadata, ...existingMetadata }
+    : { ...existingMetadata, ...generatedMetadata };
+
+  delete merged.last_deadline;
+  delete merged.last_deadline_note;
+  delete merged.next_deadline;
+  delete merged.next_deadline_note;
 
   return merged;
 }
@@ -103,6 +305,7 @@ for (const [, category] of Object.entries(raw.categories ?? {})) {
       const rawNextDeadline = normalizeText(entry.next_deadline);
       const normalizedLastDeadline = normalizeDeadline(entry.last_deadline);
       const normalizedNextDeadline = normalizeDeadline(entry.next_deadline);
+      const { deadline, deadlineNote } = resolveDeadlineFields(entry);
       const noteParts = [
         normalizeText(entry.next_deadline_note),
         normalizeText(entry.last_deadline_note),
@@ -110,24 +313,27 @@ for (const [, category] of Object.entries(raw.categories ?? {})) {
         rawLastDeadline && !normalizedLastDeadline ? `raw last deadline: ${rawLastDeadline}` : null,
       ].filter(Boolean);
       const note = noteParts.length > 0 ? noteParts.join(" | ") : null;
+      const deadlineTimezone = normalizeText(entry.deadline_timezone);
 
       conferences.push({
         slug: slugify(entry.name),
         name: entry.name,
         full_name: entry.full_name,
         ccf_rank: ["A", "B", "C"].includes(rank) ? rank : "Other",
+        core_rank: normalizeCoreRank(entry.core_rank),
         category_name: categoryName,
         category_description: categoryDescription,
         subcategories,
         description: categoryDescription,
         website: normalizeText(entry.website),
         annual: normalizeText(entry.annual),
-        last_deadline: normalizedLastDeadline,
-        last_deadline_note: normalizeText(entry.last_deadline_note),
-        next_deadline: normalizedNextDeadline,
-        next_deadline_note: normalizeText(entry.next_deadline_note),
-        deadline_timezone: null,
-        deadline_type: inferDeadlineType(note),
+        deadline,
+        deadline_note: deadlineNote,
+        deadline_timezone: deadlineTimezone,
+        deadline_type: inferDeadlineType(deadlineNote ?? note, deadlineTimezone),
+        deadline_extension_probability: normalizeDeadlineExtensionProbability(
+          entry.deadline_extension_probability,
+        ),
         conference_date: normalizeText(entry.conference_date),
         conference_location: normalizeText(entry.conference_location),
         page_limit: normalizeText(entry.page_limit),
@@ -147,11 +353,11 @@ const dedupedConferences = [];
 const mergedByIdentity = new Map();
 
 for (const conference of conferences) {
-  const identityKey = `${conference.full_name.toLowerCase()}::${conference.category_name.toLowerCase()}`;
-  const existing = mergedByIdentity.get(identityKey);
+  const identityKey = getIdentityKey(conference);
+  const existingConference = mergedByIdentity.get(identityKey);
 
-  if (existing) {
-    mergedByIdentity.set(identityKey, mergeConferenceRecords(existing, conference));
+  if (existingConference) {
+    mergedByIdentity.set(identityKey, mergeConferenceRecords(existingConference, conference));
     continue;
   }
 
@@ -159,7 +365,10 @@ for (const conference of conferences) {
 }
 
 for (const conference of mergedByIdentity.values()) {
-  dedupedConferences.push(conference);
+  const existingConference = existingByIdentity.get(getIdentityKey(conference));
+  dedupedConferences.push(
+    existingConference ? mergeWithExistingConference(conference, existingConference) : conference,
+  );
 }
 
 const usedSlugs = new Map();
@@ -177,8 +386,8 @@ for (const conference of dedupedConferences) {
 }
 
 dedupedConferences.sort((left, right) => {
-  const leftDate = left.next_deadline ?? left.last_deadline ?? "9999-12-31";
-  const rightDate = right.next_deadline ?? right.last_deadline ?? "9999-12-31";
+  const leftDate = left.deadline ?? "9999-12-31";
+  const rightDate = right.deadline ?? "9999-12-31";
   return leftDate.localeCompare(rightDate);
 });
 

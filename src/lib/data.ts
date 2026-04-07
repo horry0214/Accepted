@@ -5,11 +5,41 @@ import type {
   CommunityThread,
   CommunityThreadBundle,
   Conference,
+  CoreRank,
   UserProfile,
 } from "@/lib/types";
+import { getDeadlineTimestamp } from "@/lib/utils";
 import { createClient } from "@/lib/supabase/server";
 
-type ConferenceRow = Conference & { id: string };
+type ConferenceRow = {
+  id?: string;
+  slug: string;
+  name: string;
+  full_name: string;
+  ccf_rank: string;
+  core_rank?: string | null;
+  category_name: string;
+  category_description: string | null;
+  subcategories?: string[] | null;
+  description: string | null;
+  website: string | null;
+  annual: string | null;
+  deadline?: string | null;
+  deadline_note?: string | null;
+  last_deadline?: string | null;
+  last_deadline_note?: string | null;
+  next_deadline?: string | null;
+  next_deadline_note?: string | null;
+  deadline_timezone: string | null;
+  deadline_type: string;
+  deadline_extension_probability?: number | string | null;
+  conference_date: string | null;
+  conference_location: string | null;
+  page_limit: string | null;
+  acceptance_rate: string | null;
+  source_last_modified: string | null;
+  metadata?: unknown;
+};
 type ThreadRow = CommunityThread;
 type CommentRow = CommunityComment;
 type ProfileRow = {
@@ -28,17 +58,129 @@ function mapProfile(row: ProfileRow): UserProfile {
   };
 }
 
+function normalizeText(value: unknown) {
+  return typeof value === "string" && value.trim().length > 0 ? value.trim() : null;
+}
+
+function normalizeDeadline(value: unknown) {
+  const normalized = normalizeText(value);
+
+  if (!normalized) {
+    return null;
+  }
+
+  return /^\d{4}-\d{2}-\d{2}(?:[ T]\d{2}:\d{2}(?::\d{2})?)?$/.test(normalized) ? normalized : null;
+}
+
+function normalizeCoreRank(value: unknown): CoreRank | null {
+  const normalized = normalizeText(value)?.toUpperCase().replace(/\s+/g, "");
+
+  switch (normalized) {
+    case "A*":
+    case "A":
+    case "B":
+    case "C":
+      return normalized;
+    case "UNRANKED":
+      return "Unranked";
+    default:
+      return null;
+  }
+}
+
+function normalizeDeadlineExtensionProbability(value: unknown) {
+  if (typeof value === "number" && Number.isFinite(value)) {
+    return Math.max(0, Math.min(100, Math.round(value * 10) / 10));
+  }
+
+  if (typeof value !== "string") {
+    return null;
+  }
+
+  const trimmed = value.trim();
+
+  if (!trimmed) {
+    return null;
+  }
+
+  const numeric = Number.parseFloat(trimmed.replace("%", ""));
+
+  if (!Number.isFinite(numeric)) {
+    return null;
+  }
+
+  const percentage = trimmed.includes("%") ? numeric : numeric <= 1 ? numeric * 100 : numeric;
+  return Math.max(0, Math.min(100, Math.round(percentage * 10) / 10));
+}
+
+function asMetadataRecord(value: unknown) {
+  return value && typeof value === "object" && !Array.isArray(value)
+    ? (value as Record<string, unknown>)
+    : {};
+}
+
+function resolveDeadline(row: ConferenceRow, metadata: Record<string, unknown>) {
+  const nextDeadline = normalizeDeadline(row.next_deadline);
+  const lastDeadline = normalizeDeadline(row.last_deadline);
+  const deadline =
+    normalizeDeadline(row.deadline) ?? normalizeDeadline(metadata.deadline) ?? nextDeadline ?? lastDeadline;
+  const deadlineNote =
+    normalizeText(row.deadline_note) ??
+    normalizeText(metadata.deadline_note) ??
+    (nextDeadline
+      ? normalizeText(row.next_deadline_note)
+      : normalizeText(row.last_deadline_note) ?? normalizeText(row.next_deadline_note));
+
+  return { deadline, deadlineNote };
+}
+
 function mapConference(row: ConferenceRow): Conference {
+  const metadata = asMetadataRecord(row.metadata);
+  const { deadline, deadlineNote } = resolveDeadline(row, metadata);
+
   return {
     ...row,
     ccf_rank: ["A", "B", "C"].includes(row.ccf_rank) ? (row.ccf_rank as "A" | "B" | "C") : "Other",
+    core_rank: normalizeCoreRank(row.core_rank ?? metadata.core_rank),
     subcategories: row.subcategories ?? [],
+    deadline,
+    deadline_note: deadlineNote,
     deadline_type:
       row.deadline_type === "aoe" || row.deadline_type === "conference_local"
         ? row.deadline_type
         : "unknown",
-    metadata: (row.metadata as Record<string, unknown> | null) ?? {},
+    deadline_extension_probability: normalizeDeadlineExtensionProbability(
+      row.deadline_extension_probability ?? metadata.deadline_extension_probability,
+    ),
+    metadata,
   };
+}
+
+function sortConferencesByDeadline(conferences: Conference[]) {
+  const now = Date.now();
+
+  return [...conferences].sort((left, right) => {
+    const leftTimestamp = getDeadlineTimestamp(left.deadline, left.deadline_timezone);
+    const rightTimestamp = getDeadlineTimestamp(right.deadline, right.deadline_timezone);
+    const leftIsFuture = leftTimestamp !== null && leftTimestamp >= now;
+    const rightIsFuture = rightTimestamp !== null && rightTimestamp >= now;
+
+    if (leftIsFuture && rightIsFuture) {
+      if (leftTimestamp !== rightTimestamp) {
+        return leftTimestamp - rightTimestamp;
+      }
+    } else if (leftIsFuture !== rightIsFuture) {
+      return leftIsFuture ? -1 : 1;
+    } else if (leftTimestamp !== null && rightTimestamp !== null) {
+      if (leftTimestamp !== rightTimestamp) {
+        return rightTimestamp - leftTimestamp;
+      }
+    } else if (leftTimestamp !== null || rightTimestamp !== null) {
+      return leftTimestamp !== null ? -1 : 1;
+    }
+
+    return left.name.localeCompare(right.name);
+  });
 }
 
 function mapThread(row: ThreadRow, profile?: ProfileRow | null): CommunityThread {
@@ -81,19 +223,16 @@ export async function getConferenceCatalog() {
   const supabase = await createClient();
 
   if (!supabase) {
-    return bundledCatalog.conferences as Conference[];
+    return sortConferencesByDeadline((bundledCatalog.conferences as ConferenceRow[]).map(mapConference));
   }
 
-  const { data, error } = await supabase
-    .from("conferences")
-    .select("*")
-    .order("next_deadline", { ascending: true, nullsFirst: false });
+  const { data, error } = await supabase.from("conferences").select("*");
 
   if (error || !data) {
-    return bundledCatalog.conferences as Conference[];
+    return sortConferencesByDeadline((bundledCatalog.conferences as ConferenceRow[]).map(mapConference));
   }
 
-  return data.map(mapConference);
+  return sortConferencesByDeadline((data as ConferenceRow[]).map(mapConference));
 }
 
 export async function getConferenceBySlug(slug: string) {
@@ -101,8 +240,9 @@ export async function getConferenceBySlug(slug: string) {
 
   if (!supabase) {
     return (
-      (bundledCatalog.conferences as Conference[]).find((conference) => conference.slug === slug) ??
-      null
+      (bundledCatalog.conferences as ConferenceRow[])
+        .map(mapConference)
+        .find((conference) => conference.slug === slug) ?? null
     );
   }
 
@@ -114,12 +254,13 @@ export async function getConferenceBySlug(slug: string) {
 
   if (error || !data) {
     return (
-      (bundledCatalog.conferences as Conference[]).find((conference) => conference.slug === slug) ??
-      null
+      (bundledCatalog.conferences as ConferenceRow[])
+        .map(mapConference)
+        .find((conference) => conference.slug === slug) ?? null
     );
   }
 
-  return mapConference(data);
+  return mapConference(data as ConferenceRow);
 }
 
 export async function getThreadsForConference(conferenceId: string) {
