@@ -22,6 +22,18 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
       priority: 1,
     },
     {
+      url: `${siteUrl}/ccf-ddl`,
+      lastModified: new Date().toISOString(),
+      changeFrequency: "daily",
+      priority: 0.9,
+    },
+    {
+      url: `${siteUrl}/ccf-a-deadlines`,
+      lastModified: new Date().toISOString(),
+      changeFrequency: "daily",
+      priority: 0.9,
+    },
+    {
       url: `${siteUrl}/profile`,
       lastModified: new Date().toISOString(),
       changeFrequency: "weekly",

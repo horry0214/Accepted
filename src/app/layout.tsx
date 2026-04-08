@@ -34,11 +34,11 @@ const condensed = IBM_Plex_Sans_Condensed({
 export const metadata: Metadata = {
   metadataBase: new URL(getSiteUrl()),
   title: {
-    default: "Accepted | CCF DDL Tracker and Research Community",
+    default: "Accepted | CCF DDL Tracker and Conference Deadlines",
     template: "%s | Accepted",
   },
   description:
-    "Accepted is a polished CCF DDL tracker for computer science researchers, with deadline intelligence, venue context, and community discussion.",
+    "Accepted is a CCF DDL tracker for computer science researchers, covering conference deadlines, CCF rankings, CORE rankings, and venue context.",
   keywords: homeKeywords,
 };
 
