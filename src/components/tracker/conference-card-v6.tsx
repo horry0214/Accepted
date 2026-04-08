@@ -1,7 +1,7 @@
 "use client";
 
 import Link from "next/link";
-import { ArrowRight, Clock3, MapPin, TimerReset } from "lucide-react";
+import { ArrowRight, Clock3, ExternalLink, MapPin, TimerReset } from "lucide-react";
 import { useEffect, useMemo, useState } from "react";
 
 import { useLocale } from "@/lib/i18n";
@@ -26,6 +26,7 @@ type Copy = {
   location: string;
   notAvailable: string;
   details: string;
+  website: string;
   unknown: string;
   likely: string;
   possible: string;
@@ -71,6 +72,7 @@ export function ConferenceCardV6({ conference }: { conference: Conference }) {
           location: "开会地点",
           notAvailable: "暂无",
           details: "查看详情",
+          website: "会议官网",
           unknown: "未知",
           likely: "较高",
           possible: "可能",
@@ -89,6 +91,7 @@ export function ConferenceCardV6({ conference }: { conference: Conference }) {
           location: "Location",
           notAvailable: "Not available",
           details: "View details",
+          website: "Official site",
           unknown: "Unknown",
           likely: "Likely",
           possible: "Possible",
@@ -170,7 +173,22 @@ export function ConferenceCardV6({ conference }: { conference: Conference }) {
           </span>
         </div>
 
-        <h2 className="mt-3 font-serif text-[2.05rem] font-semibold leading-none tracking-tight">{conference.name}</h2>
+        <div className="mt-3 flex items-start justify-between gap-3">
+          <h2 className="font-serif text-[2.05rem] font-semibold leading-none tracking-tight">{conference.name}</h2>
+          {conference.website ? (
+            <a
+              href={conference.website}
+              target="_blank"
+              rel="noreferrer"
+              aria-label={copy.website}
+              title={copy.website}
+              className="inline-flex shrink-0 items-center gap-1.5 rounded-full border border-border bg-white/72 px-3 py-1.5 text-[0.72rem] font-medium text-muted transition hover:border-accent hover:text-accent dark:bg-white/[0.04]"
+            >
+              <span>{copy.website}</span>
+              <ExternalLink className="size-3.5" />
+            </a>
+          ) : null}
+        </div>
         <p className="mt-2 line-clamp-2 min-h-11 text-sm leading-6 text-muted">{conference.full_name}</p>
       </div>
 

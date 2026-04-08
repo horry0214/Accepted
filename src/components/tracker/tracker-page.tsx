@@ -22,6 +22,7 @@ export function TrackerPage({
   const [deadlineFilter, setDeadlineFilter] = useState("All");
   const [category, setCategory] = useState("All");
   const [currentPage, setCurrentPage] = useState(1);
+  const [pageInput, setPageInput] = useState("1");
   const [referenceTime] = useState(() => Date.now());
   const deferredQuery = useDeferredValue(query);
   const workspaceRef = useRef<HTMLElement | null>(null);
@@ -88,6 +89,10 @@ export function TrackerPage({
     workspaceRef.current?.scrollIntoView({ behavior: "smooth", block: "start" });
   }, [currentPage]);
 
+  useEffect(() => {
+    setPageInput(String(effectiveCurrentPage));
+  }, [effectiveCurrentPage]);
+
   const heroCopy =
     locale === "zh"
       ? {
@@ -100,6 +105,8 @@ export function TrackerPage({
           workspaceEyebrow: "Tracker workspace",
           paginationPrev: "上一页",
           paginationNext: "下一页",
+          paginationJump: "跳转到",
+          paginationGo: "前往",
         }
       : {
           brand: "Accepted",
@@ -111,6 +118,8 @@ export function TrackerPage({
           workspaceEyebrow: "Tracker workspace",
           paginationPrev: "Prev",
           paginationNext: "Next",
+          paginationJump: "Jump to",
+          paginationGo: "Go",
         };
 
   return (
@@ -264,6 +273,39 @@ export function TrackerPage({
             >
               {heroCopy.paginationNext}
             </button>
+
+            <form
+              className="ml-1 flex items-center gap-2 rounded-full border border-border bg-white/70 px-2 py-1.5 dark:bg-white/5"
+              onSubmit={(event) => {
+                event.preventDefault();
+                const parsed = Number.parseInt(pageInput, 10);
+
+                if (!Number.isFinite(parsed)) {
+                  setPageInput(String(effectiveCurrentPage));
+                  return;
+                }
+
+                const targetPage = Math.min(totalPages, Math.max(1, parsed));
+                setCurrentPage(targetPage);
+                setPageInput(String(targetPage));
+              }}
+            >
+              <span className="px-1 text-xs uppercase tracking-[0.18em] text-muted">{heroCopy.paginationJump}</span>
+              <input
+                value={pageInput}
+                onChange={(event) => setPageInput(event.target.value.replace(/[^\d]/g, ""))}
+                inputMode="numeric"
+                aria-label={heroCopy.paginationJump}
+                className="w-12 rounded-full bg-white px-3 py-1 text-center text-sm outline-none dark:bg-white/10"
+              />
+              <span className="text-xs text-muted">/ {totalPages}</span>
+              <button
+                type="submit"
+                className="rounded-full bg-accent px-3 py-1 text-xs font-medium text-white transition hover:opacity-90"
+              >
+                {heroCopy.paginationGo}
+              </button>
+            </form>
           </div>
         ) : null}
       </section>

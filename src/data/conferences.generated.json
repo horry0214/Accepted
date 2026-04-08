@@ -147,19 +147,96 @@
         "程序设计语言"
       ],
       "description": "软件开发生命周期、系统软件设计、编程语言理论与实现",
-      "website": "https://qrs25.techconf.org/",
-      "annual": null,
+      "website": "https://qrs26.techconf.org/",
+      "annual": "annual",
       "deadline_timezone": "AoE",
       "deadline_type": "unknown",
-      "conference_date": "July 16-20, 2025",
-      "conference_location": "Hangzhou, China",
-      "page_limit": null,
+      "conference_date": "July 22-25, 2026",
+      "conference_location": "Florence, Italy",
+      "page_limit": "Regular papers: 12 pages; Short papers: 10 pages",
       "acceptance_rate": null,
-      "source_last_modified": "2026-04-07",
+      "source_last_modified": "2026-04-08",
+      "Notification_of_Acceptance": "May 30, 2026 (regular and short papers); July 1, 2026 (all other tracks)",
+      "camera_ready_deadline": "July 1, 2026",
+      "author_registration_deadline": "July 1, 2026",
+      "submission_guidelines": {
+        "regular_papers": "Submit original manuscripts with a maximum of 12 pages. Each submission should include a title, author names and affiliations, an abstract, and up to 6 keywords. Use the QRS conference proceedings format.",
+        "short_papers": "Submit original manuscripts reporting novel ideas and results that have not been fully evaluated, with a maximum of 10 pages. Each submission should include a title, author names and affiliations, an abstract, and up to 6 keywords. Use the QRS conference proceedings format."
+      },
+      "important_dates": [
+        {
+          "label": "Abstract due",
+          "date": "April 8, 2026"
+        },
+        {
+          "label": "Regular and Short papers due",
+          "date": "April 22, 2026",
+          "note": "extended"
+        },
+        {
+          "label": "Workshop and Special Track papers due",
+          "date": "May 15, 2026"
+        },
+        {
+          "label": "Author notification (regular and short papers)",
+          "date": "May 30, 2026"
+        },
+        {
+          "label": "Fast Abstracts & Industry Track due",
+          "date": "June 3, 2026"
+        },
+        {
+          "label": "Poster Track due",
+          "date": "June 15, 2026"
+        },
+        {
+          "label": "Author notification (except for regular and short papers)",
+          "date": "July 1, 2026"
+        },
+        {
+          "label": "Camera-ready due",
+          "date": "July 1, 2026"
+        },
+        {
+          "label": "Author registration due",
+          "date": "July 1, 2026"
+        }
+      ],
+      "tracks": [
+        {
+          "track_name": "Regular papers",
+          "deadline": "2026-04-22 23:59:59",
+          "deadline_timezone": "AoE",
+          "description": "Original full research papers published in the QRS 2026 Proceedings.",
+          "page_limit": "12 pages"
+        },
+        {
+          "track_name": "Short papers",
+          "deadline": "2026-04-22 23:59:59",
+          "deadline_timezone": "AoE",
+          "description": "Novel ideas and results that have not been fully evaluated, published in the QRS 2026 Proceedings.",
+          "page_limit": "10 pages"
+        },
+        {
+          "track_name": "Workshop and Special Track papers",
+          "deadline": "2026-05-15 23:59:59",
+          "deadline_timezone": "AoE"
+        },
+        {
+          "track_name": "Fast Abstracts & Industry Track",
+          "deadline": "2026-06-03 23:59:59",
+          "deadline_timezone": "AoE"
+        },
+        {
+          "track_name": "Poster Track",
+          "deadline": "2026-06-15 23:59:59",
+          "deadline_timezone": "AoE"
+        }
+      ],
       "metadata": {
         "source": "Final reconciled with PDF 7th (2026-03) - verified",
         "category_code": "",
-        "notes": null,
+        "notes": "Manually updated with QRS 2026 dates and submission information on 2026-04-08",
         "ccfddl_sync": {
           "source": "https://ccfddl.github.io/conference/allconf.yml",
           "synced_at": "2026-04-07",
@@ -177,8 +254,8 @@
         }
       },
       "core_rank": "C",
-      "deadline": "2025-04-15 23:59:59",
-      "deadline_note": null,
+      "deadline": "2026-04-22 23:59:59",
+      "deadline_note": "Regular and Short papers due (extended); abstract due April 8, 2026",
       "deadline_extension_probability": null
     },
     {
@@ -407,7 +484,7 @@
     },
     {
       "slug": "models",
-      "name": "MoDELS",
+      "name": "MODELS",
       "full_name": "International Conference on Model Driven Engineering Languages and Systems",
       "ccf_rank": "B",
       "category_name": "软件工程",
@@ -417,23 +494,91 @@
         "程序设计语言"
       ],
       "description": "软件开发生命周期、系统软件设计、编程语言理论与实现",
-      "website": "https://conf.researchr.org/home/models-2022",
-      "annual": null,
+      "website": "https://conf.researchr.org/home/models-2026",
+      "annual": "annual",
       "deadline_timezone": "AoE",
-      "deadline_type": "conference_local",
-      "conference_date": "October 23-28, 2022",
-      "conference_location": "Montréal, Canada",
-      "page_limit": null,
+      "deadline_type": "unknown",
+      "rebuttal": {
+        "rebuttal_start": "May 27, 2026",
+        "rebuttal_deadline": "May 29, 2026"
+      },
+      "Notification_of_Acceptance": "June 17, 2026",
+      "camera_ready_deadline": "July 31, 2026",
+      "conference_date": "October 4-9, 2026",
+      "conference_location": "Malaga, Spain",
+      "page_limit": "10 pages main text + 2 reference-only pages",
       "acceptance_rate": null,
-      "source_last_modified": "2026-04-07",
+      "source_last_modified": "2026-04-08",
+      "important_dates": [
+        {
+          "label": "Abstract submission",
+          "date": "March 20, 2026"
+        },
+        {
+          "label": "Paper submission",
+          "date": "March 27, 2026"
+        },
+        {
+          "label": "Author responses",
+          "date": "May 27-29, 2026"
+        },
+        {
+          "label": "Author notification",
+          "date": "June 17, 2026"
+        },
+        {
+          "label": "Camera-ready due",
+          "date": "July 31, 2026"
+        },
+        {
+          "label": "Conference dates",
+          "date": "October 4-9, 2026"
+        }
+      ],
+      "topics_of_interest": [
+        "Fundamentals of model-based engineering, including syntax and semantics of modeling and transformation languages",
+        "New paradigms, formalisms, frameworks, or processes for model-based engineering such as low-code/no-code and digital twins",
+        "Model-based generative and re-engineering approaches",
+        "Model-based monitoring, analysis, and adaptation toward intelligent systems",
+        "Model-based systems engineering and modeling-in-the-large",
+        "AI for modeling, including search, machine learning, and large language models",
+        "Modeling for AI-based systems",
+        "Human, organizational, and UX factors in model-based engineering",
+        "Tools, meta-tools, language workbenches, model management, and scalable model repositories",
+        "Hybrid multi-modeling approaches and tool integration",
+        "Evaluation and comparison of modeling languages, techniques, and tools",
+        "Quality assurance for models and model transformations",
+        "Collaborative modeling, including browser-based and cloud-enabled collaboration",
+        "Evolution of modeling languages and related standards",
+        "Modeling education and curriculum design",
+        "Modeling in domains such as security, cyber-physical systems, IoT, cloud, DevOps, sustainability, agentic AI, and open-source software"
+      ],
+      "tracks": [
+        {
+          "track_name": "Foundations Track",
+          "description": "Double-anonymous technical papers describing significant original research contributions in modeling and model-driven engineering."
+        },
+        {
+          "track_name": "Practice Track",
+          "description": "Single-anonymous technical papers reporting industrial, public-sector, or open-source applications of model-based engineering."
+        }
+      ],
+      "submission_guidelines": {
+        "general": "All submission dates are hard deadlines at 23:59 AoE. Papers must be submitted electronically through the MODELS 2026 EasyChair page and prepared in ACM proceedings PDF format.",
+        "foundations_track": "Foundations papers follow double-anonymous review. Author identities must be removed, self-references should be in the third person, and supplementary material must not reveal authorship.",
+        "practice_track": "Practice papers follow single-anonymous review and should explain the application context, practical problem, methods, efficacy, and lessons learned.",
+        "format": "Both tracks allow up to 10 pages for the main text, including figures, tables, appendices, etc., plus up to 2 pages containing only references. The page limit is strict.",
+        "artifacts": "Authors of accepted papers may optionally submit artifacts for artifact evaluation; successful submissions receive a seal of approval.",
+        "policy": "Submissions must be original, unpublished, and not under review elsewhere. Authors should obtain ORCID IDs to complete ACM publication processing."
+      },
       "metadata": {
         "source": "Final reconciled with PDF 7th (2026-03) - verified",
         "category_code": "",
-        "notes": "raw next deadline: soon!Novel research in modeling & MDE? Real-world",
+        "notes": "MODELS 2026 research papers CFP with Foundations and Practice tracks",
         "ccfddl_sync": {
           "source": "https://ccfddl.github.io/conference/allconf.yml",
           "synced_at": "2026-04-07",
-          "matched_title": "MoDELS",
+          "matched_title": "MODELS",
           "matched_by": [
             "title=name",
             "titleSansPrefix=name",
@@ -443,12 +588,12 @@
             "shared:MODELS",
             "ccf_rank"
           ],
-          "selected_year": 2022
+          "selected_year": 2026
         }
       },
       "core_rank": "A",
-      "deadline": "2022-05-18 23:59:59",
-      "deadline_note": null,
+      "deadline": "2026-03-27 23:59:59",
+      "deadline_note": "Paper submission; abstract due March 20, 2026",
       "deadline_extension_probability": null
     },
     {
@@ -1595,15 +1740,99 @@
       "annual": "annual",
       "deadline_timezone": "AoE",
       "deadline_type": "unknown",
-      "conference_date": "August 24-26, 2025",
+      "Notification_of_Acceptance": "Early May, 2026",
+      "camera_ready_deadline": "July 17, 2026",
+      "conference_date": "August 23-25, 2026",
       "conference_location": "Memorial Auditorium, Stanford, Palo Alto, CA",
-      "page_limit": null,
+      "page_limit": "Extended abstract: 2 pages max; Poster: 4 slides + 1-page summary",
       "acceptance_rate": null,
-      "source_last_modified": "2026-04-07",
+      "source_last_modified": "2026-04-08",
+      "important_dates": [
+        {
+          "label": "Submission deadline",
+          "date": "March 29, 2026"
+        },
+        {
+          "label": "Extended submission deadline",
+          "date": "April 8, 2026"
+        },
+        {
+          "label": "Acceptance notification",
+          "date": "Early May, 2026"
+        },
+        {
+          "label": "Final version due",
+          "date": "July 17, 2026"
+        },
+        {
+          "label": "Conference dates",
+          "date": "August 23-25, 2026"
+        }
+      ],
+      "topics_of_interest": [
+        "General-purpose processor chips",
+        "High-performance, low-power chips",
+        "Multi-core and highly reliable systems",
+        "Domain-specific chips",
+        "AI accelerators",
+        "Graphics chips",
+        "Machine learning chips",
+        "Data analytics and big data processing",
+        "IoT and always-on functions",
+        "Custom chips for emerging applications",
+        "Reconfigurable chips",
+        "FPGAs and FPGA-based systems",
+        "Coarse-grained reconfigurable arrays",
+        "Secure hardware",
+        "Hardware support for software security",
+        "Mobile and embedded devices",
+        "Graphics, multimedia, and gaming",
+        "SoC, security, and DSP chips",
+        "Communications and networking",
+        "Wireless LAN/WAN/PAN",
+        "Network and I/O processors",
+        "Neuromorphic computing",
+        "Quantum computing",
+        "Analog computing and photonic chips",
+        "Emerging memory",
+        "Packaging, 3D, and stacked technologies",
+        "Power and thermal management",
+        "Sustainable computing",
+        "Generative tools",
+        "Packaging and testing",
+        "Display technologies",
+        "On-chip optics and sensors",
+        "Novel computing technologies",
+        "Software and systems for emerging hardware",
+        "Programming models and runtime systems",
+        "Performance, power, debug, and evaluation"
+      ],
+      "submission_guidelines": {
+        "general": "Submissions must include whether the contribution is a presentation or poster, a title, an extended abstract of at most 2 pages, presenter contact information, overlap disclosure, and an indication of whether the submission should be held confidential.",
+        "presentation": "Presentations are 30-minute talks using PowerPoint or PDF. Presentation slides are published in the Hot Chips Proceedings. Selected presentations may be invited to submit a paper to a special issue of IEEE Micro.",
+        "poster": "Poster submissions consist of 4 slides with a 1-page summary. Student posters describing applied research performed at a university are especially encouraged.",
+        "evaluation": "Submissions are evaluated on device performance, degree of innovation, use of advanced technology, potential market significance, and expected audience interest."
+      },
+      "tracks": [
+        {
+          "track_name": "Presentation",
+          "deadline": "2026-04-08 23:59:59",
+          "deadline_timezone": "AoE",
+          "description": "Regular presentation submissions for 30-minute talks published in the Hot Chips proceedings.",
+          "page_limit": "Extended abstract: 2 pages max"
+        },
+        {
+          "track_name": "Poster",
+          "deadline": "2026-04-08 23:59:59",
+          "deadline_timezone": "AoE",
+          "description": "Poster submissions from industry and academia, including student posters on applied research.",
+          "page_limit": "4 slides + 1-page summary"
+        }
+      ],
       "metadata": {
         "source": "Final reconciled with PDF 7th (2026-03) - verified",
         "category_code": "",
-        "notes": null,
+        "notes": "Manually updated with Hot Chips 2026 call for contributions on 2026-04-08",
         "ccfddl_sync": {
           "source": "https://ccfddl.github.io/conference/allconf.yml",
           "synced_at": "2026-04-07",
@@ -1622,8 +1851,8 @@
         }
       },
       "core_rank": "C",
-      "deadline": "2025-04-16 23:59:59",
-      "deadline_note": null,
+      "deadline": "2026-04-08 23:59:59",
+      "deadline_note": "Extended submission deadline",
       "deadline_extension_probability": null
     },
     {
@@ -1680,18 +1909,77 @@
       "subcategories": [],
       "description": "用户界面设计、交互技术、普适计算与情境感知",
       "website": "https://assets25.sigaccess.org/",
-      "annual": null,
+      "annual": "annual",
       "deadline_timezone": "AoE",
       "deadline_type": "unknown",
-      "conference_date": "Oct 26 - 29, 2025",
-      "conference_location": "Denver, Colorado",
-      "page_limit": null,
+      "rebuttal": {
+        "rebuttal_start": "June 3, 2026",
+        "rebuttal_deadline": "June 10, 2026"
+      },
+      "Notification_of_Acceptance": "June 24, 2026",
+      "conference_date": "October 25-28, 2026",
+      "conference_location": "Porto, Portugal",
+      "camera_ready_deadline": "July 22, 2026",
+      "page_limit": "Long papers: 7,500-10,000 words; Short papers: 4,000-5,000 words (references excluded)",
       "acceptance_rate": null,
-      "source_last_modified": "2026-04-07",
+      "source_last_modified": "2026-04-08",
+      "important_dates": [
+        {
+          "label": "Technical paper submission deadline",
+          "date": "April 22, 2026"
+        },
+        {
+          "label": "Initial reviews sent to authors / rebuttal opens",
+          "date": "June 3, 2026"
+        },
+        {
+          "label": "Rebuttal phase closes",
+          "date": "June 10, 2026"
+        },
+        {
+          "label": "Acceptance decisions sent to authors",
+          "date": "June 24, 2026"
+        },
+        {
+          "label": "Camera-ready deadline",
+          "date": "July 22, 2026"
+        }
+      ],
+      "submission_guidelines": {
+        "long_papers": "Technical papers are typically 7,500 to 10,000 words, excluding references. Submissions should use the ASSETS single-column Word or LaTeX manuscript template and must be anonymized and accessible.",
+        "short_papers": "Short technical papers are typically 4,000 to 5,000 words, excluding references. They are archival, rigorously reviewed papers and must follow the same anonymity and accessibility requirements as long papers.",
+        "accessibility": "PDF submissions must be accessible. Inaccessible submissions will be desk-rejected.",
+        "review_process": "ASSETS 2026 uses a fully anonymous review process for Technical Papers, with a rebuttal period after initial reviews."
+      },
+      "topics_of_interest": [
+        "Design of computing technologies for people with disabilities and older adults",
+        "Evaluation and use of accessibility-focused systems and tools",
+        "Accessibility barriers and inclusive technology design",
+        "Studies of how technologies are used by people with disabilities",
+        "Accessibility education methods and outcomes",
+        "New enabling technologies for accessibility",
+        "Social issues related to computing and accessibility"
+      ],
+      "tracks": [
+        {
+          "track_name": "Technical Papers",
+          "deadline": "2026-04-22 23:59:59",
+          "deadline_timezone": "AoE",
+          "description": "Fully anonymous, archival technical paper track for substantial contributions to computing and accessibility.",
+          "page_limit": "7,500-10,000 words (references excluded)"
+        },
+        {
+          "track_name": "Short Technical Papers",
+          "deadline": "2026-04-22 23:59:59",
+          "deadline_timezone": "AoE",
+          "description": "Focused and concise archival research contributions reviewed to the same standards as long papers.",
+          "page_limit": "4,000-5,000 words (references excluded)"
+        }
+      ],
       "metadata": {
         "source": "Final reconciled with PDF 7th (2026-03) - verified",
         "category_code": "",
-        "notes": null,
+        "notes": "Manually updated with ASSETS 2026 technical papers CFP on 2026-04-08",
         "ccfddl_sync": {
           "source": "https://ccfddl.github.io/conference/allconf.yml",
           "synced_at": "2026-04-07",
@@ -1710,8 +1998,8 @@
         }
       },
       "core_rank": "A",
-      "deadline": "2025-04-16 23:59:59",
-      "deadline_note": null,
+      "deadline": "2026-04-22 23:59:59",
+      "deadline_note": "Technical paper submission deadline",
       "deadline_extension_probability": null
     },
     {
@@ -1770,19 +2058,97 @@
       "category_description": "图形渲染、可视化技术、多媒体处理与交互技术",
       "subcategories": [],
       "description": "图形渲染、可视化技术、多媒体处理与交互技术",
-      "website": "https://smiconf.github.io/2025/",
-      "annual": null,
-      "deadline_timezone": "AoE",
+      "website": "https://smiconf.github.io/2026/",
+      "annual": "annual",
+      "deadline_timezone": "UTC",
       "deadline_type": "conference_local",
-      "conference_date": "October 29 - November 2, 2025",
-      "conference_location": "Hangzhou, Zhejiang, P.R. China",
-      "page_limit": null,
+      "Notification_of_Acceptance": "May 25, 2026",
+      "camera_ready_deadline": "June 8, 2026",
+      "conference_date": "July 6-9, 2026",
+      "conference_location": "Istanbul, Turkey",
+      "page_limit": "12 pages (including figures and references)",
       "acceptance_rate": null,
-      "source_last_modified": "2026-04-07",
+      "source_last_modified": "2026-04-08",
+      "important_dates": [
+        {
+          "label": "Abstract submission",
+          "date": "March 23, 2026",
+          "note": "soft deadline"
+        },
+        {
+          "label": "Full paper submission",
+          "date": "March 30, 2026"
+        },
+        {
+          "label": "First review notification",
+          "date": "April 27, 2026"
+        },
+        {
+          "label": "Revised papers due",
+          "date": "May 11, 2026"
+        },
+        {
+          "label": "Second review notification",
+          "date": "May 25, 2026"
+        },
+        {
+          "label": "Camera-ready full papers due",
+          "date": "June 8, 2026"
+        },
+        {
+          "label": "Conference dates",
+          "date": "July 6-9, 2026"
+        }
+      ],
+      "topics_of_interest": [
+        "AR/VR environments",
+        "Acquisition and reconstruction",
+        "Behavior and animation models",
+        "Compression and streaming",
+        "Computational topology",
+        "Correspondence and registration",
+        "Curves and surfaces",
+        "Digital fabrication and 3D printing",
+        "Geometric Deep Learning",
+        "Exploration of shape collections",
+        "Feature extraction and classification",
+        "Healing and resampling",
+        "Implicit surfaces",
+        "Interactive modeling, design and editing",
+        "Learning techniques for shape modeling",
+        "Medial and skeletal representations",
+        "Parametric and procedural models",
+        "Segmentation",
+        "Semantics of shapes",
+        "Shape analysis and synthesis",
+        "Shape modeling applications",
+        "Shape statistics",
+        "Shape transformation and deformation",
+        "Simulation",
+        "Sketching and 3D input modalities",
+        "Triangle and polygonal meshes",
+        "3D Digital Twins",
+        "3D retrieval"
+      ],
+      "submission_guidelines": {
+        "general": "Submissions must be anonymous, previously unpublished, original results not simultaneously submitted elsewhere, and submitted via EasyChair.",
+        "format": "Papers should follow the style guidelines for the Computers & Graphics Journal. LaTeX is strongly recommended, and MS Word formatted according to the same guide is also accepted. Initial submissions must be exported to PDF.",
+        "length": "Submissions should not exceed 12 pages, including figures and references.",
+        "review_process": "SMI 2026 uses a double-blind review process."
+      },
+      "tracks": [
+        {
+          "track_name": "Main Conference Papers",
+          "deadline": "2026-03-30 23:59:59",
+          "deadline_timezone": "UTC",
+          "description": "Anonymous, original full paper submissions reviewed under a double-blind process.",
+          "page_limit": "12 pages including figures and references"
+        }
+      ],
       "metadata": {
         "source": "Final reconciled with PDF 7th (2026-03) - verified",
         "category_code": "",
-        "notes": "raw next deadline: June 8, 2026",
+        "notes": "Manually updated with SMI 2026 call for papers on 2026-04-08",
         "ccfddl_sync": {
           "source": "https://ccfddl.github.io/conference/allconf.yml",
           "synced_at": "2026-04-07",
@@ -1801,8 +2167,8 @@
         }
       },
       "core_rank": "Unranked",
-      "deadline": "2025-04-22 23:59:59",
-      "deadline_note": null,
+      "deadline": "2026-03-30 23:59:59",
+      "deadline_note": "Full paper submission; abstract due March 23, 2026 (soft deadline)",
       "deadline_extension_probability": null
     },
     {
@@ -1863,19 +2229,143 @@
         "程序设计语言"
       ],
       "description": "软件开发生命周期、系统软件设计、编程语言理论与实现",
-      "website": "https://ksiresearch.org/seke/seke25.html",
-      "annual": null,
+      "website": "https://ksiresearch.org/seke/seke26.html",
+      "annual": "annual",
       "deadline_timezone": "UTC-5",
       "deadline_type": "unknown",
-      "conference_date": "Sept 29 - Oct 6, 2025",
-      "conference_location": "Pompeii, Italy & Virtual",
-      "page_limit": null,
-      "acceptance_rate": null,
-      "source_last_modified": "2026-04-07",
+      "Notification_of_Acceptance": "June 20, 2026",
+      "camera_ready_deadline": "July 20, 2026",
+      "author_registration_deadline": "July 20, 2026",
+      "conference_date": "Live: October 1-2, 2026; Virtual: October 4-10, 2026",
+      "conference_location": "Toronto, Canada & KSIR Virtual Conference Center, USA",
+      "page_limit": "Regular papers: 6 pages; Short papers: 4 pages; Research notes: 1 page; double-column format with 200-word abstract",
+      "acceptance_rate": "36% (2025), 38% (2024), 39% (2023), 39% (2022), 34% (2021)",
+      "source_last_modified": "2026-04-08",
+      "important_dates": [
+        {
+          "label": "Paper submission due",
+          "date": "May 1, 2026"
+        },
+        {
+          "label": "Notification of acceptance",
+          "date": "June 20, 2026"
+        },
+        {
+          "label": "Early registration deadline",
+          "date": "July 20, 2026"
+        },
+        {
+          "label": "Camera-ready copy / revised paper due",
+          "date": "July 20, 2026"
+        },
+        {
+          "label": "Live conference dates",
+          "date": "October 1-2, 2026"
+        },
+        {
+          "label": "Virtual conference dates",
+          "date": "October 4-10, 2026"
+        }
+      ],
+      "topics_of_interest": [
+        "Software engineering methodologies",
+        "Agent-based software engineering",
+        "Artificial intelligence approaches to software engineering",
+        "Component-based software engineering",
+        "Embedded and ubiquitous software engineering",
+        "Aspect-based software engineering",
+        "Empirical software engineering",
+        "Search-based software engineering",
+        "Automated software design and synthesis",
+        "Automated software specification",
+        "Computer-supported cooperative work",
+        "Reverse engineering",
+        "Requirements engineering",
+        "Software analysis, design and modeling",
+        "Software maintenance and evolution",
+        "Software engineering tools and environments",
+        "Software engineering decision support",
+        "Software design patterns",
+        "Software product lines",
+        "Process and workflow management",
+        "Reflection and metadata approaches",
+        "Program understanding and system maintenance",
+        "Software domain modeling and analysis",
+        "Software economics",
+        "Multimedia and hypermedia software engineering",
+        "Enterprise software, middleware, and tools",
+        "Artificial intelligent methods, models, techniques",
+        "Artificial life and societies",
+        "Swarm intelligence",
+        "Smart spaces",
+        "Autonomic computing",
+        "Adaptive systems",
+        "Agent architectures, ontologies, languages and protocols",
+        "Multi-agent systems",
+        "Agent-based learning and knowledge discovery",
+        "Interface agents",
+        "Secure mobile and multi-agent systems",
+        "Service-centric software engineering",
+        "Service oriented architectures",
+        "Middleware for service based systems",
+        "Service discovery and composition",
+        "Runtime service management",
+        "Semantic web",
+        "Data modeling, aggregation, integration, and transformation",
+        "Web and text mining",
+        "Data analytics modeling and algorithms",
+        "Data visualization",
+        "Knowledge acquisition",
+        "Knowledge-based and expert systems",
+        "Knowledge representation and retrievals",
+        "Knowledge engineering tools and techniques",
+        "Knowledge modeling, integration, transformation, and management",
+        "Mobile app design and development",
+        "Pervasive computing",
+        "Mobile system validation and test automation",
+        "Software and system testing methods",
+        "Quality assurance process, standards, and systems",
+        "Software dependability, reliability, scalability",
+        "Software and system security and privacy",
+        "Cloud, sensor cloud and mobile cloud security",
+        "Big data analytics application systems",
+        "IoT and smart city application systems",
+        "Smart learning methods and environments",
+        "Online learning systems"
+      ],
+      "submission_guidelines": {
+        "general": "Papers must be written in English and submitted electronically via EasyChair as Postscript, PDF, or MS Word files. Submissions must not be published or under consideration elsewhere.",
+        "format": "The manuscript must include a 200-word abstract and use a double-column conference proceedings format.",
+        "length": "Regular papers are 6 pages, short papers 4 pages, and research notes 1 page. Figures and references are included in the page limit.",
+        "review_process": "Papers are evaluated based on originality, significance, technical soundness, and clarity of exposition."
+      },
+      "tracks": [
+        {
+          "track_name": "Regular Papers",
+          "deadline": "2026-05-01 23:59:59",
+          "deadline_timezone": "UTC-5",
+          "description": "Full conference paper submissions on software engineering and knowledge engineering topics.",
+          "page_limit": "6 pages"
+        },
+        {
+          "track_name": "Short Papers",
+          "deadline": "2026-05-01 23:59:59",
+          "deadline_timezone": "UTC-5",
+          "description": "Shorter research paper submissions reviewed under the same conference process.",
+          "page_limit": "4 pages"
+        },
+        {
+          "track_name": "Research Notes / Poster / Demo",
+          "deadline": "2026-05-01 23:59:59",
+          "deadline_timezone": "UTC-5",
+          "description": "Poster presentation and demo-oriented submissions.",
+          "page_limit": "1 page"
+        }
+      ],
       "metadata": {
         "source": "Final reconciled with PDF 7th (2026-03) - verified",
         "category_code": "",
-        "notes": null,
+        "notes": "Manually updated with SEKE26 call for papers on 2026-04-08",
         "ccfddl_sync": {
           "source": "https://ccfddl.github.io/conference/allconf.yml",
           "synced_at": "2026-04-07",
@@ -1894,8 +2384,8 @@
         }
       },
       "core_rank": "C",
-      "deadline": "2025-05-01 23:59:00",
-      "deadline_note": null,
+      "deadline": "2026-05-01 23:59:59",
+      "deadline_note": "Paper submission due",
       "deadline_extension_probability": null
     },
     {
@@ -1954,19 +2444,121 @@
         "存储系统"
       ],
       "description": "涵盖计算机体系结构、并行计算、分布式系统以及存储技术",
-      "website": "https://clustercomp.org/2025",
-      "annual": null,
+      "website": "https://clustercomp.org/2026/",
+      "annual": "annual",
       "deadline_timezone": "AoE",
       "deadline_type": "conference_local",
-      "conference_date": "September 2-5, 2025",
-      "conference_location": "Edinburgh, United Kingdom",
-      "page_limit": null,
+      "rebuttal": {
+        "rebuttal_start": "June 18, 2026",
+        "rebuttal_deadline": "June 21, 2026"
+      },
+      "Notification_of_Acceptance": "July 5, 2026",
+      "camera_ready_deadline": "August 6, 2026",
+      "conference_date": "September 22-25, 2026",
+      "conference_location": "Alexandria, Virginia, USA",
+      "page_limit": "Main papers: 10 pages excluding references; Posters: 2-page extended abstract including references",
       "acceptance_rate": null,
-      "source_last_modified": "2026-04-07",
+      "source_last_modified": "2026-04-08",
+      "important_dates": [
+        {
+          "label": "Abstract submission",
+          "date": "April 23, 2026"
+        },
+        {
+          "label": "Full papers submission",
+          "date": "April 30, 2026"
+        },
+        {
+          "label": "Author response / rebuttal period",
+          "date": "June 18-21, 2026"
+        },
+        {
+          "label": "Paper acceptance notification",
+          "date": "July 5, 2026"
+        },
+        {
+          "label": "Poster submission opens",
+          "date": "April 28, 2026"
+        },
+        {
+          "label": "Poster submission deadline",
+          "date": "July 10, 2026"
+        },
+        {
+          "label": "Poster acceptance notification",
+          "date": "July 26, 2026"
+        },
+        {
+          "label": "Camera-ready deadline",
+          "date": "August 6, 2026"
+        },
+        {
+          "label": "Conference dates",
+          "date": "September 22-25, 2026"
+        }
+      ],
+      "topics_of_interest": [
+        "Applications, algorithms, and libraries for clusters",
+        "HPC and Big Data application studies on large-scale clusters",
+        "Applications at the boundary of HPC and Big Data",
+        "Novel algorithms on clusters",
+        "Hybrid programming techniques in applications and libraries",
+        "Cluster benchmarks",
+        "Application-level libraries on clusters",
+        "Architecture, network/communications, and management",
+        "Node and system architecture for HPC and Big Data clusters",
+        "Energy-efficient cluster architectures",
+        "Packaging, power and cooling",
+        "Accelerators, reconfigurable and domain-specific hardware",
+        "Heterogeneous clusters",
+        "Interconnect and memory architectures",
+        "Administration, monitoring and maintenance tools",
+        "Programming and system software",
+        "Cluster system software and operating systems",
+        "Programming models for converged HPC/Big Data/Machine Learning systems",
+        "Cloud-enabling cluster technologies and virtualization",
+        "Energy-efficient middleware",
+        "Cluster security",
+        "Fault tolerance and high-availability",
+        "Data, storage, and visualization",
+        "Big Data storage and processing on clusters",
+        "Storage systems supporting the convergence of HPC and Big Data processing",
+        "File systems and I/O libraries",
+        "Support and integration of non-volatile memory",
+        "Visualization clusters and tiled displays",
+        "Big Data and large-scale visualization tools",
+        "AI for HPC",
+        "HPC for AI",
+        "Quantum computing",
+        "Disaggregated storage, accelerators, and memory systems"
+      ],
+      "submission_guidelines": {
+        "main_papers": "Main paper submissions must be PDF, IEEE Xplore format, single-spaced, two-column numbered pages on 8.5x11-inch paper with 10pt main text. Papers must be no more than 10 pages excluding references and follow the dual-anonymous review policy.",
+        "posters": "Poster submissions require a 2-page extended abstract including references plus a poster draft. The extended abstract must use IEEE conference format and fit within 2 letter-sized pages including figures, tables, and references.",
+        "in_person_policy": "For an accepted paper to be included in the proceedings, at least one author must register, attend in person, and present the paper in Alexandria, Virginia.",
+        "ai_policy": "Use of AI-generated text, figures, images, or code must be disclosed in the acknowledgments section and identify the system used and where it contributed."
+      },
+      "tracks": [
+        {
+          "track_name": "Main Papers",
+          "deadline": "2026-04-30 23:59:59",
+          "deadline_timezone": "AoE",
+          "description": "Research and experience papers on cluster computing, reviewed under a dual-anonymous process.",
+          "page_limit": "10 pages excluding references"
+        },
+        {
+          "track_name": "Posters",
+          "deadline": "2026-07-10 23:59:59",
+          "deadline_timezone": "AoE",
+          "description": "Poster track for latest findings and work-in-progress in cluster, cloud, and grid technologies.",
+          "page_limit": "2-page extended abstract including references"
+        }
+      ],
       "metadata": {
         "source": "Final reconciled with PDF 7th (2026-03) - verified",
         "category_code": "",
-        "notes": "Deadline not yet announced | Full Paper Deadline",
+        "notes": "Manually updated with IEEE Cluster 2026 call for papers and posters on 2026-04-08",
+        "submission_site": "https://clustercomp.org/2026/",
         "ccfddl_sync": {
           "source": "https://ccfddl.github.io/conference/allconf.yml",
           "synced_at": "2026-04-07",
@@ -1985,8 +2577,8 @@
         }
       },
       "core_rank": "B",
-      "deadline": "2025-05-02 23:59:59",
-      "deadline_note": "Full Paper Deadline",
+      "deadline": "2026-04-30 23:59:59",
+      "deadline_note": "Full papers submission; abstract due April 23, 2026",
       "deadline_extension_probability": null
     },
     {
@@ -2001,19 +2593,95 @@
         "程序设计语言"
       ],
       "description": "软件开发生命周期、系统软件设计、编程语言理论与实现",
-      "website": "https://2025.splashcon.org/home/sas-2025",
-      "annual": null,
+      "website": "https://conf.researchr.org/home/splash-issta-2026/sas-2026",
+      "annual": "annual",
       "deadline_timezone": "AoE",
       "deadline_type": "conference_local",
-      "conference_date": "October 12-18, 2025",
-      "conference_location": "Singapore",
-      "page_limit": null,
+      "rebuttal": {
+        "rebuttal_start": "June 9, 2026",
+        "rebuttal_deadline": "June 11, 2026"
+      },
+      "Notification_of_Acceptance": "June 26, 2026",
+      "camera_ready_deadline": "July 17, 2026",
+      "conference_date": "October 6-8, 2026",
+      "conference_location": "Oakland Marriott City Centre, Oakland, California, USA",
+      "page_limit": "No fixed page limit; Springer LNCS format; brevity encouraged",
       "acceptance_rate": null,
-      "source_last_modified": "2026-04-07",
+      "source_last_modified": "2026-04-08",
+      "important_dates": [
+        {
+          "label": "Submission",
+          "date": "May 1, 2026"
+        },
+        {
+          "label": "Artifact submission",
+          "date": "May 8, 2026"
+        },
+        {
+          "label": "Author response",
+          "date": "June 9-11, 2026"
+        },
+        {
+          "label": "Notification",
+          "date": "June 26, 2026"
+        },
+        {
+          "label": "Camera-ready",
+          "date": "July 17, 2026"
+        },
+        {
+          "label": "Conference dates",
+          "date": "October 6-8, 2026"
+        }
+      ],
+      "topics_of_interest": [
+        "Abstract interpretation",
+        "Automated deduction",
+        "Data flow analysis",
+        "Debugging techniques",
+        "Deductive methods",
+        "Emerging applications",
+        "Model-checking",
+        "Data science",
+        "Program optimizations and transformations",
+        "Program synthesis",
+        "Program verification",
+        "Machine learning and verification",
+        "Security analysis",
+        "Tool environments and architectures",
+        "Theoretical frameworks",
+        "Type checking",
+        "Distributed or networked systems",
+        "Static Analysis and AI",
+        "Static Analysis and Education"
+      ],
+      "submission_guidelines": {
+        "general": "Papers must be written and presented in English, describe original work, and must not substantially overlap with papers published or simultaneously submitted elsewhere.",
+        "format": "Proceedings will be published by Springer LNCS. Authors should use Springer proceedings templates for LaTeX, Overleaf, or Word.",
+        "length": "No explicit page limit is imposed for submissions, but brevity is encouraged because reviewers have limited time per paper.",
+        "review_process": "Regular papers are reviewed double blind. NEAT papers are reviewed single blind and should be titled with the prefix 'NEAT:'.",
+        "artifacts": "Artifact submission is optional. Authors are encouraged to submit a virtual machine image containing artifacts and evaluations presented in the paper."
+      },
+      "tracks": [
+        {
+          "track_name": "Regular Papers",
+          "deadline": "2026-05-01 23:59:59",
+          "deadline_timezone": "AoE",
+          "description": "Theoretical, practical, and application advances in static analysis reviewed under a double-blind process.",
+          "page_limit": "No fixed page limit; brevity encouraged"
+        },
+        {
+          "track_name": "NEAT Papers",
+          "deadline": "2026-05-01 23:59:59",
+          "deadline_timezone": "AoE",
+          "description": "New questions or areas, experience reports, announcements of work in progress, and tool papers. Titles should begin with 'NEAT:'.",
+          "page_limit": "No fixed page limit; brevity encouraged"
+        }
+      ],
       "metadata": {
         "source": "Final reconciled with PDF 7th (2026-03) - verified",
         "category_code": "",
-        "notes": "Paper Submission",
+        "notes": "Manually updated with SAS 2026 call for papers on 2026-04-08",
         "ccfddl_sync": {
           "source": "https://ccfddl.github.io/conference/allconf.yml",
           "synced_at": "2026-04-07",
@@ -2032,8 +2700,8 @@
         }
       },
       "core_rank": "B",
-      "deadline": "2025-05-04 23:59:59",
-      "deadline_note": "Paper Submission",
+      "deadline": "2026-05-01 23:59:59",
+      "deadline_note": "Submission",
       "deadline_extension_probability": null
     },
     {
@@ -2133,19 +2801,104 @@
       "category_description": "涵盖网络安全、信息安全、密码学、系统防护等",
       "subcategories": [],
       "description": "涵盖网络安全、信息安全、密码学、系统防护等",
-      "website": "https://asiacrypt.iacr.org/2025/",
-      "annual": null,
+      "website": "https://asiacrypt.iacr.org/2026/",
+      "annual": "annual",
       "deadline_timezone": null,
       "deadline_type": "unknown",
-      "conference_date": "December 8-12, 2025",
-      "conference_location": "Melbourne, Australia",
+      "conference_date": "December 7-11, 2026",
+      "conference_location": "Hong Kong, China",
       "page_limit": null,
       "acceptance_rate": null,
-      "source_last_modified": "2026-03-25",
+      "source_last_modified": "2026-04-08",
+      "Notification_of_Acceptance": "August 20, 2026",
+      "camera_ready_deadline": "September 17, 2026",
+      "important_dates": [
+        {
+          "label": "Abstract submission deadline",
+          "date": "May 15, 2026"
+        },
+        {
+          "label": "Paper submission deadline",
+          "date": "May 22, 2026"
+        },
+        {
+          "label": "Notification of acceptance",
+          "date": "August 20, 2026"
+        },
+        {
+          "label": "Camera-ready paper",
+          "date": "September 17, 2026"
+        },
+        {
+          "label": "Conference dates",
+          "date": "November 16-18, 2026"
+        }
+      ],
+      "topics_of_interest": [
+        "System architecture",
+        "Software-hardware co-design",
+        "System support for multi/many cores, co-processors, and accelerators",
+        "System support for speed, security, reliability, and energy efficiency",
+        "Virtual memory",
+        "Storage systems for data center, cloud, edge computing, HPC, exascale, and serverless computing",
+        "Software architectures, compilers, and tool chains",
+        "Programming languages, firmware, operating systems, hypervisors, and runtimes for embedded and real-time systems",
+        "Middleware for resource awareness, reconfiguration, power management, and scheduling",
+        "Processor modeling, optimization, and simulation",
+        "High-performance, low-power, secure, and reliable processor microarchitectures",
+        "Hardware acceleration for machine learning, autonomous driving, robotics, quantum, neuromorphic, and bio-inspired computing",
+        "In-memory and near-memory computing architectures",
+        "Test, verification, and security",
+        "Fault modeling, fault simulation, ATPG, DFT, and BIST",
+        "RTL, transaction-level, and gate-level modeling and verification",
+        "Equivalence checking, property checking, and theorem proving",
+        "Electronic design automation",
+        "System-level design and synthesis",
+        "High-level, logic, and physical synthesis",
+        "Timing, power, variability, yield, temperature, and noise analysis and optimization",
+        "CAD support for accelerators, FPGAs, SoCs, ASICs, NoCs, and processors",
+        "Tools and design methods for emerging technologies",
+        "Logic and circuit design",
+        "Digital, memory, analog, and mixed-signal circuit design",
+        "Asynchronous circuits and datapath circuits"
+      ],
+      "tracks": [
+        {
+          "track_name": "Computing Systems",
+          "description": "System architecture and support for multi-core, accelerators, security, reliability, energy efficiency, and storage systems."
+        },
+        {
+          "track_name": "Software Architectures, Compilers, and Tool Chains",
+          "description": "Architectures, compilers, programming models, runtimes, middleware, debugging, profiling, and processor modeling."
+        },
+        {
+          "track_name": "Hardware Architectures",
+          "description": "Processor microarchitectures, hardware acceleration, in-memory computing, and hardware design with emerging technologies."
+        },
+        {
+          "track_name": "Test, Verification, and Security",
+          "description": "Debug, diagnosis, fault tolerance, verification, hardware security, side-channel analysis, and trust."
+        },
+        {
+          "track_name": "Electronic Design Automation",
+          "description": "System-level design and synthesis, physical design, CAD for accelerators and emerging technologies, and EDA with AI/ML."
+        },
+        {
+          "track_name": "Logic and Circuit Design",
+          "description": "Digital, memory, analog, mixed-signal, asynchronous, and emerging-technology circuit design."
+        }
+      ],
+      "submission_guidelines": {
+        "general": "Authors must register the author list, paper title, and abstract in EasyChair by the abstract submission deadline, and submit the full paper by the paper deadline.",
+        "format": "Papers must follow the IEEE conference paper guidelines using letter page size and 10-point font.",
+        "length": "Submission-stage papers are limited to 8 pages including figures, references, and appendix. Up to 2 additional pages may be purchased during camera-ready preparation.",
+        "review_process": "Submissions are double blind and all identifying author information must be removed.",
+        "presentation": "Each accepted paper requires a unique full registration and must be presented in person by one of the authors to appear in the published proceedings."
+      },
       "metadata": {
         "source": "Final reconciled with PDF 7th (2026-03) - verified",
         "category_code": "",
-        "notes": null,
+        "notes": "Asiacrypt 2026 website launched on 2026-04-06; call for papers will be up soon",
         "ccfddl_sync": {
           "source": "https://ccfddl.github.io/conference/allconf.yml",
           "synced_at": "2026-04-07",
@@ -2223,19 +2976,84 @@
       "category_description": "涵盖网络安全、信息安全、密码学、系统防护等",
       "subcategories": [],
       "description": "涵盖网络安全、信息安全、密码学、系统防护等",
-      "website": "https://dfrws.org/conferences/dfrws-apac-2025/",
+      "website": "https://dfrws.org/conferences/dfrws-apac-2026/",
       "annual": "annual",
       "deadline_timezone": "AoE",
       "deadline_type": "unknown",
-      "conference_date": "November 10-12, 2025",
-      "conference_location": "Seoul, South Korea",
-      "page_limit": null,
+      "conference_date": "October 19-23, 2026",
+      "conference_location": "Singapore",
+      "page_limit": "Research papers: 10 single-spaced two-column pages, excluding references and appendix; references and appendix should be limited to 1 page total where possible",
       "acceptance_rate": null,
-      "source_last_modified": "2026-04-07",
+      "source_last_modified": "2026-04-08",
+      "topics_of_interest": [
+        "AI for digital forensics",
+        "Anti-forensics and anti-anti-forensics",
+        "Case studies and trend reports",
+        "Copyright infringement response",
+        "Cryptocurrency investigation",
+        "Data decoding, deserialization and decryption",
+        "Deleted and damaged data recovery methods and tools",
+        "Development of digital forensic infrastructures",
+        "Digital evidence sharing and exchange",
+        "Digital forensic preparedness and readiness",
+        "Digital forensic tool validation",
+        "Digital forensics for AI",
+        "Digital forensics in smart cities",
+        "Digital investigation case management",
+        "Event reconstruction methods and tools",
+        "Forensic analysis of anonymous network based activities",
+        "Forensic analysis of cloud and virtualized environments",
+        "Forensic analysis of cloud-based services",
+        "Forensic analysis of databases",
+        "Forensic exploration of newly emerging devices, OSes, apps and services",
+        "Incident response on malware and targeted attacks",
+        "Laws and policies for digital evidence",
+        "Memory acquisition and analysis",
+        "Methodological frameworks for digital forensic activities",
+        "Mobile and embedded device forensics",
+        "Multimedia data analysis",
+        "Multi-source data integration and correlation analysis",
+        "Network and distributed system forensics",
+        "Privacy-preserving forensics",
+        "Steganography and steganalysis",
+        "Training and upskilling",
+        "Visualization methods and tools for forensic analysis"
+      ],
+      "tracks": [
+        {
+          "track_name": "Research Papers",
+          "description": "Original contributions aligned with DFRWS topics, reviewed double blind, and eligible for publication in Forensic Science International: Digital Investigation.",
+          "page_limit": "10 pages excluding references and appendix"
+        },
+        {
+          "track_name": "Presentations / Demonstrations",
+          "description": "15-minute non-anonymized presentations or demos on forensics experiences, case studies, interfaces, real-time analysis, and triage."
+        },
+        {
+          "track_name": "Posters / Demonstrations",
+          "description": "Current research efforts, preliminary results, tools, and techniques discussed with the digital forensics community."
+        },
+        {
+          "track_name": "Workshops",
+          "description": "2- or 4-hour sessions with hands-on participation for tools and techniques of interest to DFRWS attendees."
+        },
+        {
+          "track_name": "Panel Proposals",
+          "description": "1-3 page proposals describing the topic, relevance, and panelist biographies."
+        }
+      ],
+      "submission_guidelines": {
+        "general": "DFRWS APAC 2026 accepts research papers, presentation and demonstration proposals, poster proposals, workshop proposals, and panel proposals. Unless otherwise stated, submissions are through EasyChair.",
+        "research_papers": "Research papers must be original, in English, blinded, and not under review elsewhere. Papers must not exceed 10 single-spaced two-column pages with 1-inch margins and 10pt font, excluding references and appendix; references and appendix should be limited to one page total where possible.",
+        "review_process": "Research papers undergo an initial screening followed by double-blind peer review. Submissions must anonymize authors, affiliations, and identifying references such as self-developed tools.",
+        "scope": "Novel data analysis methods must be evaluated using datasets representative of actual digital investigations, and improvements over existing methods must be clearly demonstrated.",
+        "camera_ready": "Accepted papers must use the provided Microsoft Word or Elsevier LaTeX template, and at least one full early-bird registration per paper is required before camera-ready submission. Authors must present their work.",
+        "other_tracks": "Presentation proposals are non-anonymized abstracts in PDF format. Posters, workshops, and panels follow event-specific expectations described on the DFRWS submission criteria page."
+      },
       "metadata": {
         "source": "Final reconciled with PDF 7th (2026-03) - verified",
         "category_code": "",
-        "notes": null,
+        "notes": "DFRWS APAC 2026 location and participation info posted; 2026 research paper deadline not yet announced",
         "ccfddl_sync": {
           "source": "https://ccfddl.github.io/conference/allconf.yml",
           "synced_at": "2026-04-07",
@@ -2249,12 +3067,12 @@
             "shared:DFRWSAPAC",
             "ccf_rank"
           ],
-          "selected_year": 2025
+          "selected_year": 2026
         }
       },
       "core_rank": "Unranked",
       "deadline": "2025-05-23 23:59:59",
-      "deadline_note": null,
+      "deadline_note": "Most recent known research paper deadline; 2026 CFP pending",
       "deadline_extension_probability": null
     },
     {
@@ -2269,19 +3087,104 @@
         "存储系统"
       ],
       "description": "涵盖计算机体系结构、并行计算、分布式系统以及存储技术",
-      "website": "https://www.iccd-conf.com/home.html",
-      "annual": null,
+      "website": "https://www.iccd-conf.com/2026/home.html",
+      "annual": "annual",
       "deadline_timezone": "AoE",
-      "deadline_type": "conference_local",
-      "conference_date": "November 10-12, 2025",
-      "conference_location": "Dallas, USA",
-      "page_limit": null,
+      "deadline_type": "unknown",
+      "conference_date": "November 16-18, 2026",
+      "conference_location": "Hong Kong SAR, China",
+      "page_limit": "8 pages including figures, references, and appendix; up to 2 additional pages may be purchased for camera-ready",
       "acceptance_rate": null,
-      "source_last_modified": "2026-04-07",
+      "source_last_modified": "2026-04-08",
+      "Notification_of_Acceptance": "August 20, 2026",
+      "camera_ready_deadline": "September 17, 2026",
+      "important_dates": [
+        {
+          "label": "Abstract submission deadline",
+          "date": "May 15, 2026"
+        },
+        {
+          "label": "Paper submission deadline",
+          "date": "May 22, 2026"
+        },
+        {
+          "label": "Notification of acceptance",
+          "date": "August 20, 2026"
+        },
+        {
+          "label": "Camera-ready paper",
+          "date": "September 17, 2026"
+        },
+        {
+          "label": "Conference dates",
+          "date": "November 16-18, 2026"
+        }
+      ],
+      "topics_of_interest": [
+        "System architecture",
+        "Software-hardware co-design",
+        "System support for multi/many cores, co-processors, and accelerators",
+        "System support for speed, security, reliability, and energy efficiency",
+        "Virtual memory",
+        "Storage systems for data center, cloud, edge computing, HPC, exascale, and serverless computing",
+        "Software architectures, compilers, and tool chains",
+        "Programming languages, firmware, operating systems, hypervisors, and runtimes for embedded and real-time systems",
+        "Middleware for resource awareness, reconfiguration, power management, and scheduling",
+        "Processor modeling, optimization, and simulation",
+        "High-performance, low-power, secure, and reliable processor microarchitectures",
+        "Hardware acceleration for machine learning, autonomous driving, robotics, quantum, neuromorphic, and bio-inspired computing",
+        "In-memory and near-memory computing architectures",
+        "Test, verification, and security",
+        "Fault modeling, fault simulation, ATPG, DFT, and BIST",
+        "RTL, transaction-level, and gate-level modeling and verification",
+        "Equivalence checking, property checking, and theorem proving",
+        "Electronic design automation",
+        "System-level design and synthesis",
+        "High-level, logic, and physical synthesis",
+        "Timing, power, variability, yield, temperature, and noise analysis and optimization",
+        "CAD support for accelerators, FPGAs, SoCs, ASICs, NoCs, and processors",
+        "Tools and design methods for emerging technologies",
+        "Logic and circuit design",
+        "Digital, memory, analog, and mixed-signal circuit design",
+        "Asynchronous circuits and datapath circuits"
+      ],
+      "tracks": [
+        {
+          "track_name": "Computing Systems",
+          "description": "System architecture and support for multi-core, accelerators, security, reliability, energy efficiency, and storage systems."
+        },
+        {
+          "track_name": "Software Architectures, Compilers, and Tool Chains",
+          "description": "Architectures, compilers, programming models, runtimes, middleware, debugging, profiling, and processor modeling."
+        },
+        {
+          "track_name": "Hardware Architectures",
+          "description": "Processor microarchitectures, hardware acceleration, in-memory computing, and hardware design with emerging technologies."
+        },
+        {
+          "track_name": "Test, Verification, and Security",
+          "description": "Debug, diagnosis, fault tolerance, verification, hardware security, side-channel analysis, and trust."
+        },
+        {
+          "track_name": "Electronic Design Automation",
+          "description": "System-level design and synthesis, physical design, CAD for accelerators and emerging technologies, and EDA with AI/ML."
+        },
+        {
+          "track_name": "Logic and Circuit Design",
+          "description": "Digital, memory, analog, mixed-signal, asynchronous, and emerging-technology circuit design."
+        }
+      ],
+      "submission_guidelines": {
+        "general": "Authors must register the author list, paper title, and abstract in EasyChair by the abstract submission deadline, and submit the full paper by the paper deadline.",
+        "format": "Papers must follow the IEEE conference paper guidelines using letter page size and 10-point font.",
+        "length": "Submission-stage papers are limited to 8 pages including figures, references, and appendix. Up to 2 additional pages may be purchased during camera-ready preparation.",
+        "review_process": "Submissions are double blind and all identifying author information must be removed.",
+        "presentation": "Each accepted paper requires a unique full registration and must be presented in person by one of the authors to appear in the published proceedings."
+      },
       "metadata": {
         "source": "Final reconciled with PDF 7th (2026-03) - verified",
         "category_code": "",
-        "notes": "raw next deadline: has passed. Notification of Acceptance:   August 0",
+        "notes": "Manually updated with ICCD 2026 call for papers on 2026-04-08",
         "ccfddl_sync": {
           "source": "https://ccfddl.github.io/conference/allconf.yml",
           "synced_at": "2026-04-07",
@@ -2296,12 +3199,12 @@
             "shared:ICCD",
             "ccf_rank"
           ],
-          "selected_year": 2025
+          "selected_year": 2026
         }
       },
       "core_rank": "Unranked",
-      "deadline": "2025-05-25 23:59:00",
-      "deadline_note": null,
+      "deadline": "2026-05-22 23:59:59",
+      "deadline_note": "Paper submission deadline; abstract due May 15, 2026",
       "deadline_extension_probability": null
     },
     {
@@ -2454,19 +3357,50 @@
         "程序设计语言"
       ],
       "description": "软件开发生命周期、系统软件设计、编程语言理论与实现",
-      "website": "https://icfem2025.github.io/",
-      "annual": null,
+      "website": "https://icfem2026.github.io/",
+      "annual": "annual",
       "deadline_timezone": "AoE",
       "deadline_type": "unknown",
-      "conference_date": "November 10 - 13, 2025",
-      "conference_location": "Hangzhou, China",
-      "page_limit": null,
+      "Notification_of_Acceptance": "August 8, 2026",
+      "camera_ready_deadline": "September 7, 2026",
+      "conference_date": "November 17-20, 2026",
+      "conference_location": "Southampton, UK",
+      "page_limit": "16 pages excluding references and appendix in Springer's LNCS format",
       "acceptance_rate": null,
-      "source_last_modified": "2026-04-07",
+      "source_last_modified": "2026-04-08",
+      "important_dates": [
+        {
+          "label": "Abstract submission",
+          "date": "June 1, 2026"
+        },
+        {
+          "label": "Full paper submission",
+          "date": "June 8, 2026"
+        },
+        {
+          "label": "Acceptance notification",
+          "date": "August 8, 2026"
+        },
+        {
+          "label": "Camera-ready version",
+          "date": "September 7, 2026"
+        },
+        {
+          "label": "Conference dates",
+          "date": "November 17-20, 2026"
+        }
+      ],
+      "submission_guidelines": {
+        "general": "Submission should be done through the ICFEM2026 submission page, with authors selecting the appropriate track when submitting.",
+        "format": "Papers must be written in English in Springer's LNCS format. Authors are encouraged to add line numbers to their submissions.",
+        "length": "Submissions should not exceed 16 pages, excluding references and appendix, in Springer's LNCS format.",
+        "review_process": "Each submission undergoes a rigorous single-blind peer-review process by at least three experts.",
+        "artifacts": "There is no artifact evaluation at ICFEM 2026, but authors are encouraged to upload artifacts to archives such as Zenodo or GitHub to support reproducibility and availability."
+      },
       "metadata": {
         "source": "Final reconciled with PDF 7th (2026-03) - verified",
         "category_code": "",
-        "notes": null,
+        "notes": "Manually updated with ICFEM 2026 important dates and submission information on 2026-04-08",
         "ccfddl_sync": {
           "source": "https://ccfddl.github.io/conference/allconf.yml",
           "synced_at": "2026-04-07",
@@ -2481,12 +3415,12 @@
             "shared:ICFEM",
             "ccf_rank"
           ],
-          "selected_year": 2025
+          "selected_year": 2026
         }
       },
       "core_rank": "C",
-      "deadline": "2025-06-01 23:59:59",
-      "deadline_note": null,
+      "deadline": "2026-06-08 23:59:59",
+      "deadline_note": "Full paper submission; abstract due June 1, 2026",
       "deadline_extension_probability": null
     },
     {
@@ -13591,7 +14525,7 @@
     {
       "slug": "iiswc",
       "name": "IISWC",
-      "full_name": "IISWC",
+      "full_name": "IEEE International Symposium on Workload Characterization",
       "ccf_rank": "Other",
       "category_name": "计算机体系结构",
       "category_description": "涵盖计算机体系结构、并行计算、分布式系统以及存储技术",
@@ -13600,19 +14534,107 @@
         "存储系统"
       ],
       "description": "涵盖计算机体系结构、并行计算、分布式系统以及存储技术",
-      "website": "https://iiswc.org/iiswc2025/",
+      "website": "https://iiswc.org/iiswc2026/",
       "annual": "annual",
-      "deadline_timezone": "UTC",
+      "deadline_timezone": "AoE",
       "deadline_type": "unknown",
-      "conference_date": "October 12-14, 2025",
-      "conference_location": "Irvine, USA",
-      "page_limit": null,
+      "rebuttal": {
+        "rebuttal_start": "July 6, 2026",
+        "rebuttal_deadline": "July 10, 2026"
+      },
+      "Notification_of_Acceptance": "July 27, 2026",
+      "camera_ready_deadline": "August 28, 2026",
+      "conference_date": "September 27-29, 2026",
+      "conference_location": "Boulder, CO, USA",
+      "page_limit": "Regular papers: up to 10 pages excluding references; Tool and benchmark papers: 6-10 pages excluding references",
       "acceptance_rate": null,
-      "source_last_modified": "2026-04-07",
+      "source_last_modified": "2026-04-09",
+      "important_dates": [
+        {
+          "label": "Abstract submission",
+          "date": "May 14, 2026"
+        },
+        {
+          "label": "Paper submission deadline (firm)",
+          "date": "May 21, 2026"
+        },
+        {
+          "label": "Rebuttal period",
+          "date": "July 6-10, 2026"
+        },
+        {
+          "label": "Author notification",
+          "date": "July 27, 2026"
+        },
+        {
+          "label": "Camera-ready deadline",
+          "date": "August 28, 2026"
+        },
+        {
+          "label": "Conference dates",
+          "date": "September 27-29, 2026"
+        }
+      ],
+      "topics_of_interest": [
+        "Characterization of applications in life sciences, bioinformatics, scientific computing, finance, and forecasting",
+        "Machine learning, deep learning, generative AI, LLMs, data analytics, and data mining workloads",
+        "Cyber-physical systems, pervasive computation, and Internet of Things workloads",
+        "Security and privacy-preserving computing",
+        "High performance computing",
+        "Cloud and edge computing",
+        "Mobile computing",
+        "Human-computer interaction",
+        "Search engines, e-commerce, web services, and databases",
+        "Embedded, multimedia, real-time, 3D graphics, gaming, rendering, and gaussian splatting workloads",
+        "Blockchain services",
+        "Augmented reality and virtual reality",
+        "Accelerator-based computing",
+        "Quantum computations and communication",
+        "Serverless computing",
+        "Near-threshold computing",
+        "Near data processing architectures",
+        "Neuromorphic and brain-inspired computing",
+        "Transactional memory systems",
+        "Biology and chemistry workloads",
+        "Characterization of OS, virtual machine, middleware, and library behavior",
+        "Implications of workloads in system design",
+        "Power-aware computing and carbon footprinting",
+        "Dependable system and software architectures",
+        "Security, privacy, and performance",
+        "Processors, memory hierarchy, I/O, and networks",
+        "Design of accelerators, FPGAs, GPUs, and CGRAs",
+        "Benchmark methodologies and suites",
+        "Representative benchmarks for emerging workloads",
+        "Profiling, trace collection, synthetic traces, and validation of benchmarks",
+        "Measurement tools and techniques",
+        "Instrumentation methodologies for workload verification and characterization",
+        "Accurate analysis and measurement of production systems",
+        "Analytical and abstract modeling of program behavior and systems"
+      ],
+      "tracks": [
+        {
+          "track_name": "Regular Papers",
+          "description": "New research ideas supported by experimental implementation and evaluation.",
+          "page_limit": "Up to 10 pages excluding references"
+        },
+        {
+          "track_name": "Tool and Benchmark Papers",
+          "description": "Design, development, and evaluation of new open-source tools and benchmark suites.",
+          "page_limit": "6-10 pages excluding references"
+        }
+      ],
+      "submission_guidelines": {
+        "general": "Authors must use the IISWC 2026 submission template and indicate paper category in the manuscript title using the prefixes 'Regular-' or 'Tools-'.",
+        "regular_papers": "Regular papers should describe new research ideas supported by experimental implementation and evaluation, up to 10 pages excluding references.",
+        "tool_and_benchmark_papers": "Tool and benchmark papers should describe new open-source tools or benchmark suites. Shorter 6-page submissions are welcome, but papers may use up to 10 pages excluding references.",
+        "review_process": "Both categories follow double-blind submission guidelines, and the chosen category cannot be changed after the deadline.",
+        "artifacts": "Artifact evaluation is voluntary and occurs after acceptance. The artifact description does not count toward the page limit.",
+        "open_source": "Open-source benchmarks and tools are eligible if they have not been previously published, and anonymized repositories must be used when source links are included."
+      },
       "metadata": {
         "source": "Final reconciled with PDF 7th (2026-03) - verified",
         "category_code": "",
-        "notes": null,
+        "notes": "Manually updated with IISWC 2026 CFP on 2026-04-09",
         "ccfddl_sync": {
           "source": "https://ccfddl.github.io/conference/allconf.yml",
           "synced_at": "2026-04-07",
@@ -13625,12 +14647,12 @@
             "prefixless",
             "shared:IISWC"
           ],
-          "selected_year": 2025
+          "selected_year": 2026
         }
       },
       "core_rank": "Unranked",
-      "deadline": "2025-06-21 00:00:00",
-      "deadline_note": "Submissions Due: 2025-06-21",
+      "deadline": "2026-05-21 23:59:59",
+      "deadline_note": "Paper submission deadline (firm); abstract due May 14, 2026",
       "deadline_extension_probability": null
     },
     {
@@ -13845,18 +14867,91 @@
       "subcategories": [],
       "description": "涵盖网络安全、信息安全、密码学、系统防护等",
       "website": "https://srds-conference.org/",
-      "annual": null,
+      "annual": "annual",
       "deadline_timezone": "AoE",
       "deadline_type": "unknown",
-      "conference_date": "September 29-October 2, 2025",
-      "conference_location": "Porto, Portugal",
-      "page_limit": null,
+      "Notification_of_Acceptance": "July 3, 2026",
+      "camera_ready_deadline": "July 31, 2026",
+      "author_registration_deadline": "July 31, 2026",
+      "conference_date": "September 21-25, 2026",
+      "conference_location": "Rome, Italy",
+      "page_limit": "10 pages excluding references; IEEE two-column format; appendix allowed beyond the page limit at reviewers' discretion",
       "acceptance_rate": null,
-      "source_last_modified": "2026-04-07",
+      "source_last_modified": "2026-04-08",
+      "important_dates": [
+        {
+          "label": "Abstract submission",
+          "date": "April 24, 2026"
+        },
+        {
+          "label": "Full paper submission",
+          "date": "May 1, 2026"
+        },
+        {
+          "label": "Notification to authors",
+          "date": "July 3, 2026"
+        },
+        {
+          "label": "Camera-ready and author registration",
+          "date": "July 31, 2026"
+        },
+        {
+          "label": "Conference dates",
+          "date": "September 21-25, 2026"
+        }
+      ],
+      "topics_of_interest": [
+        "Dependability, security, and privacy of distributed systems",
+        "Cloud, high-performance, fog, edge, and cloud-to-device computing",
+        "Distributed data storage and processing",
+        "Distributed machine learning and AI",
+        "Distributed ledgers and blockchain systems",
+        "Safety-critical distributed systems",
+        "Internet of Things, vehicular, robotic, cyber-physical, and mobile systems",
+        "Fault tolerance, fault recovery, robustness, self-stabilization, and self-healing",
+        "Security, scalability, and real-time for distributed systems",
+        "Coordination, replication, transactions, failure prediction and detection",
+        "Performance and metastable failure mitigation and recovery",
+        "Privacy-preservation, end-to-end security, integrity, and verifiability",
+        "Methods, paradigms, and tools for designing, implementing, verifying, validating, and operating dependable and secure distributed applications and platforms",
+        "Microservice-based and serverless-based systems",
+        "Middleware, operating systems, virtual machines, and hardware",
+        "Analytical, simulative, and experimental assessment of dependable and secure distributed systems"
+      ],
+      "submission_guidelines": {
+        "general": "Authors must first register their submissions with a title and abstract and then upload the full manuscript in PDF on the HotCRP submission site.",
+        "format": "Research Papers, Practical Experience Reports, and Tool Papers must follow the IEEE two-column conference format and be written in English.",
+        "length": "Submissions should be no longer than 10 pages, excluding references. Additional appendix material such as proofs, data tables, or code snippets may be included beyond the page limit and read at the reviewers' discretion.",
+        "review_process": "SRDS 2026 is double blind. Submissions must preserve author anonymity and may be desk rejected if they violate anonymization or formatting requirements."
+      },
+      "tracks": [
+        {
+          "track_name": "Research Papers",
+          "deadline": "2026-05-01 23:59:59",
+          "deadline_timezone": "AoE",
+          "description": "Original research as well as design, development, and experimental results of distributed systems.",
+          "page_limit": "10 pages excluding references"
+        },
+        {
+          "track_name": "Practical Experience Reports",
+          "deadline": "2026-05-01 23:59:59",
+          "deadline_timezone": "AoE",
+          "description": "Ongoing industrial projects, prototype systems, and exploratory or emerging applications.",
+          "page_limit": "10 pages excluding references"
+        },
+        {
+          "track_name": "Tool Papers",
+          "deadline": "2026-05-01 23:59:59",
+          "deadline_timezone": "AoE",
+          "description": "Architecture, implementation, and usage of substantive tools for reliable distributed systems.",
+          "page_limit": "10 pages excluding references"
+        }
+      ],
       "metadata": {
         "source": "Final reconciled with PDF 7th (2026-03) - verified",
         "category_code": "",
-        "notes": null,
+        "notes": "Manually updated with SRDS 2026 call for papers on 2026-04-08",
+        "submission_site": "https://hotcrp.inesctec.pt/srds26/",
         "ccfddl_sync": {
           "source": "https://ccfddl.github.io/conference/allconf.yml",
           "synced_at": "2026-04-07",
@@ -13875,8 +14970,8 @@
         }
       },
       "core_rank": "B",
-      "deadline": "2025-05-02 23:59:59",
-      "deadline_note": "Full Paper Submission",
+      "deadline": "2026-05-01 23:59:59",
+      "deadline_note": "Full paper submission; abstract due April 24, 2026",
       "deadline_extension_probability": null
     },
     {
@@ -14017,19 +15112,76 @@
         "程序设计语言"
       ],
       "description": "软件开发生命周期、系统软件设计、编程语言理论与实现",
-      "website": "https://conf.researchr.org/home/esem-2025",
-      "annual": null,
+      "website": "https://conf.researchr.org/home/eseiw-2026",
+      "annual": "annual",
       "deadline_timezone": "AoE",
       "deadline_type": "conference_local",
-      "conference_date": "September 29 - October 3, 2025",
-      "conference_location": "Honolulu, Hawai, USA",
-      "page_limit": null,
+      "Notification_of_Acceptance": "June 30, 2026",
+      "camera_ready_deadline": "August 17, 2026",
+      "conference_date": "October 4-9, 2026",
+      "conference_location": "München, Germany",
+      "page_limit": "Main content: up to 17 pages; up to 3 additional pages for data availability, references, and acknowledgements; total maximum 20 pages",
       "acceptance_rate": null,
-      "source_last_modified": "2026-04-07",
+      "source_last_modified": "2026-04-08",
+      "important_dates": [
+        {
+          "label": "Abstract (mandatory)",
+          "date": "May 11, 2026"
+        },
+        {
+          "label": "Submission",
+          "date": "May 18, 2026"
+        },
+        {
+          "label": "Notification",
+          "date": "June 30, 2026"
+        },
+        {
+          "label": "Camera-ready",
+          "date": "August 17, 2026"
+        }
+      ],
+      "topics_of_interest": [
+        "Empirical studies using qualitative, quantitative, and mixed methods",
+        "Cross- and multi-disciplinary methods and studies",
+        "Controlled experiments and quasi-experiments",
+        "Case studies, action research, ethnography, and field studies",
+        "Survey research",
+        "Simulation studies",
+        "Artifact studies",
+        "Data mining using statistical, machine learning, and AI-based approaches",
+        "Meta-studies and evidence syntheses",
+        "Replication studies",
+        "Evaluation and comparison of software models, tools, techniques, and practices",
+        "Modeling, measuring, and assessing product or process quality and productivity",
+        "Continuous software engineering",
+        "Software verification and validation, including analysis and testing",
+        "Engineering of software systems that include machine learning components and data dependencies",
+        "Applications of software engineering to IoT, cyber-physical systems, Industry 4.0, and other domains",
+        "Human factors, teamwork, and behavioral aspects of software engineering",
+        "Development, evaluation, and comparison of empirical approaches and methods",
+        "Infrastructure, techniques, and tools for conducting and supporting empirical studies"
+      ],
+      "submission_guidelines": {
+        "general": "Technical papers must describe original, unpublished work in software engineering and software measurement with a strong empirical foundation. Papers must be written in English, submitted as PDF, and formatted using the Dagstuhl LIPIcs guidelines.",
+        "format": "A structured abstract is required with the headings Background, Aims, Method, Results, and Conclusions. Submissions must also follow COPE CORE practices guidance.",
+        "length": "Main content may be up to 17 pages, plus up to 3 additional pages for the mandatory Data Availability statement, references, and optional acknowledgements, for a total maximum of 20 pages.",
+        "open_science": "ESEM is open by default. Submissions must comply with the Open Science Policy and provide the artifacts needed to understand and reproduce the analysis unless legal or ethical barriers exist.",
+        "review_process": "ESEM 2026 uses a double-anonymous review process. Submissions must not reveal authors' identities and may be desk-rejected if they violate anonymity, formatting, or submission requirements."
+      },
+      "tracks": [
+        {
+          "track_name": "Technical Papers (Main Track)",
+          "deadline": "2026-05-18 23:59:59",
+          "deadline_timezone": "AoE",
+          "description": "Original, unpublished work in software engineering and software measurement with a strong empirical foundation.",
+          "page_limit": "17 pages main content + up to 3 additional pages, max 20 pages total"
+        }
+      ],
       "metadata": {
         "source": "Final reconciled with PDF 7th (2026-03) - verified",
         "category_code": "",
-        "notes": "raw next deadline: to multiple requests from the community, we have a",
+        "notes": "Manually updated with ESEM 2026 technical papers track CFP on 2026-04-08",
         "ccfddl_sync": {
           "source": "https://ccfddl.github.io/conference/allconf.yml",
           "synced_at": "2026-04-07",
@@ -14048,8 +15200,8 @@
         }
       },
       "core_rank": "A",
-      "deadline": "2025-04-25 23:59:59",
-      "deadline_note": null,
+      "deadline": "2026-05-18 23:59:59",
+      "deadline_note": "Submission; mandatory abstract due May 11, 2026",
       "deadline_extension_probability": null
     },
     {
@@ -14158,19 +15310,94 @@
         "内容检索"
       ],
       "description": "数据库系统、数据挖掘技术、信息检索与内容搜索",
-      "website": "https://adma2025.github.io",
-      "annual": null,
+      "website": "https://adma2026.github.io",
+      "annual": "annual",
       "deadline_timezone": "AoE",
       "deadline_type": "unknown",
-      "conference_date": "October 22 - 24, 2025",
-      "conference_location": "Kyoto, Japan",
-      "page_limit": null,
+      "Notification_of_Acceptance": "August 21, 2026",
+      "camera_ready_deadline": "September 4, 2026",
+      "conference_date": "November 13-15, 2026",
+      "conference_location": "Hong Kong SAR, China",
+      "page_limit": "15 pages in LNAI format",
       "acceptance_rate": null,
-      "source_last_modified": "2026-04-07",
+      "source_last_modified": "2026-04-08",
+      "important_dates": [
+        {
+          "label": "Submission deadline",
+          "date": "June 26, 2026"
+        },
+        {
+          "label": "Notification",
+          "date": "August 21, 2026"
+        },
+        {
+          "label": "Camera-ready submission deadline",
+          "date": "September 4, 2026"
+        },
+        {
+          "label": "Conference dates",
+          "date": "November 13-15, 2026"
+        }
+      ],
+      "topics_of_interest": [
+        "Data mining foundations and algorithms",
+        "Grand challenges in big data mining",
+        "Mining on data streams",
+        "Graph mining",
+        "Spatial and temporal data mining",
+        "Text, video, multimedia data mining",
+        "Web mining and social networks",
+        "Correlation mining and causality analysis",
+        "Recommender systems",
+        "Generative data mining",
+        "Deep learning models for data mining",
+        "Trustworthy and responsible data mining",
+        "Data mining security and privacy",
+        "Federated and privacy-aware data mining",
+        "Parallel and distributed data mining",
+        "Interactive data mining and visualisation",
+        "Benchmarking and evaluations",
+        "Trends in advanced data mining",
+        "Data mining for edge intelligence",
+        "Data mining for bioinformatics",
+        "Image mining and interpretations",
+        "E-commerce data mining",
+        "Healthcare informatics",
+        "Disaster prediction and prevention",
+        "Data Mining Applications with LLMs",
+        "Financial market analysis",
+        "Software analysis with data mining",
+        "Data mining enhanced education",
+        "Data mining for AgriTech",
+        "Data mining in Internet of Things",
+        "Mining for database management",
+        "Data mining for space science",
+        "Data mining for cyber security",
+        "Data mining for eScience",
+        "Smart Cities applications",
+        "Data mining for societal science"
+      ],
+      "submission_guidelines": {
+        "general": "Papers must be in English and contain unpublished contributions to data mining and related fields. Submissions are reviewed in a double-blind manner and author lists are final at submission time.",
+        "format": "Manuscripts must follow the Springer LNAI/LNCS format and be submitted as blinded PDFs via CMT.",
+        "length": "The main paper must not exceed 15 pages in LNAI format. Supplementary material may be uploaded separately and has no page limit.",
+        "review_process": "Submissions must be suitably blinded, including supplementary materials, and any violation of the submission policy may lead to desk rejection.",
+        "ai_policy": "Authors using AI-generated text must clearly document the AI system used and the sections where it contributed, and remain fully responsible for the submitted content."
+      },
+      "tracks": [
+        {
+          "track_name": "Research Papers",
+          "deadline": "2026-06-26 23:59:59",
+          "deadline_timezone": "AoE",
+          "description": "Original research papers on advanced data mining theories, technologies, and applications reviewed in a double-blind process.",
+          "page_limit": "15 pages in LNAI format"
+        }
+      ],
       "metadata": {
         "source": "Final reconciled with PDF 7th (2026-03) - verified",
         "category_code": "",
-        "notes": null,
+        "notes": "Manually updated with ADMA2026 call for research papers on 2026-04-08",
+        "submission_site": "https://cmt3.research.microsoft.com/ADMA2026",
         "ccfddl_sync": {
           "source": "https://ccfddl.github.io/conference/allconf.yml",
           "synced_at": "2026-04-07",
@@ -14189,8 +15416,8 @@
         }
       },
       "core_rank": "C",
-      "deadline": "2025-05-08 23:59:59",
-      "deadline_note": null,
+      "deadline": "2026-06-26 23:59:59",
+      "deadline_note": "Submission deadline",
       "deadline_extension_probability": null
     },
     {

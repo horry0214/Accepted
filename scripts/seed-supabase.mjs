@@ -71,6 +71,26 @@ function sanitizeTimestamp(value) {
   return null;
 }
 
+function buildLegacyMetadata(conference) {
+  const {
+    metadata,
+    deadline,
+    deadline_note,
+    core_rank,
+    deadline_extension_probability,
+    ...extraFields
+  } = conference;
+
+  return {
+    ...(metadata ?? {}),
+    ...extraFields,
+    deadline: sanitizeTimestamp(deadline),
+    deadline_note: deadline_note ?? null,
+    core_rank: core_rank ?? null,
+    deadline_extension_probability: deadline_extension_probability ?? null,
+  };
+}
+
 const payload = source.conferences.map((conference) => ({
   ...conference,
   deadline: sanitizeTimestamp(conference.deadline),
@@ -106,13 +126,7 @@ const legacyPayload = source.conferences.map((conference) => ({
   page_limit: conference.page_limit,
   acceptance_rate: conference.acceptance_rate,
   source_last_modified: conference.source_last_modified,
-  metadata: {
-    ...(conference.metadata ?? {}),
-    deadline: sanitizeTimestamp(conference.deadline),
-    deadline_note: conference.deadline_note,
-    core_rank: conference.core_rank ?? null,
-    deadline_extension_probability: conference.deadline_extension_probability ?? null,
-  },
+  metadata: buildLegacyMetadata(conference),
 }));
 
 const { error: legacyError } = await supabase

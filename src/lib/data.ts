@@ -123,10 +123,10 @@ function resolveDeadline(row: ConferenceRow, metadata: Record<string, unknown>) 
   const nextDeadline = normalizeDeadline(row.next_deadline);
   const lastDeadline = normalizeDeadline(row.last_deadline);
   const deadline =
-    normalizeDeadline(row.deadline) ?? normalizeDeadline(metadata.deadline) ?? nextDeadline ?? lastDeadline;
+    normalizeDeadline(metadata.deadline) ?? normalizeDeadline(row.deadline) ?? nextDeadline ?? lastDeadline;
   const deadlineNote =
-    normalizeText(row.deadline_note) ??
     normalizeText(metadata.deadline_note) ??
+    normalizeText(row.deadline_note) ??
     (nextDeadline
       ? normalizeText(row.next_deadline_note)
       : normalizeText(row.last_deadline_note) ?? normalizeText(row.next_deadline_note));
@@ -137,12 +137,23 @@ function resolveDeadline(row: ConferenceRow, metadata: Record<string, unknown>) 
 function mapConference(row: ConferenceRow): Conference {
   const metadata = asMetadataRecord(row.metadata);
   const { deadline, deadlineNote } = resolveDeadline(row, metadata);
+  const website = normalizeText(metadata.website) ?? normalizeText(row.website);
+  const annual = normalizeText(metadata.annual) ?? normalizeText(row.annual);
+  const conferenceDate = normalizeText(metadata.conference_date) ?? normalizeText(row.conference_date);
+  const conferenceLocation =
+    normalizeText(metadata.conference_location) ?? normalizeText(row.conference_location);
+  const pageLimit = normalizeText(metadata.page_limit) ?? normalizeText(row.page_limit);
+  const acceptanceRate = normalizeText(metadata.acceptance_rate) ?? normalizeText(row.acceptance_rate);
+  const sourceLastModified =
+    normalizeText(metadata.source_last_modified) ?? normalizeText(row.source_last_modified);
 
   return {
     ...row,
     ccf_rank: ["A", "B", "C"].includes(row.ccf_rank) ? (row.ccf_rank as "A" | "B" | "C") : "Other",
-    core_rank: normalizeCoreRank(row.core_rank ?? metadata.core_rank),
+    core_rank: normalizeCoreRank(metadata.core_rank ?? row.core_rank),
     subcategories: row.subcategories ?? [],
+    website,
+    annual,
     deadline,
     deadline_note: deadlineNote,
     deadline_type:
@@ -150,14 +161,20 @@ function mapConference(row: ConferenceRow): Conference {
         ? row.deadline_type
         : "unknown",
     deadline_extension_probability: normalizeDeadlineExtensionProbability(
-      row.deadline_extension_probability ?? metadata.deadline_extension_probability,
+      metadata.deadline_extension_probability ?? row.deadline_extension_probability,
     ),
+    conference_date: conferenceDate,
+    conference_location: conferenceLocation,
+    page_limit: pageLimit,
+    acceptance_rate: acceptanceRate,
+    source_last_modified: sourceLastModified,
     metadata,
   };
 }
 
 function sortConferencesByDeadline(conferences: Conference[]) {
   const now = Date.now();
+  const currentDate = new Date(now);
 
   return [...conferences].sort((left, right) => {
     const leftTimestamp = getDeadlineTimestamp(left.deadline, left.deadline_timezone);
@@ -172,6 +189,17 @@ function sortConferencesByDeadline(conferences: Conference[]) {
     } else if (leftIsFuture !== rightIsFuture) {
       return leftIsFuture ? -1 : 1;
     } else if (leftTimestamp !== null && rightTimestamp !== null) {
+      const leftRecurringKey = getRecurringDeadlineKey(left, currentDate);
+      const rightRecurringKey = getRecurringDeadlineKey(right, currentDate);
+
+      if (leftRecurringKey !== null && rightRecurringKey !== null && leftRecurringKey !== rightRecurringKey) {
+        return leftRecurringKey - rightRecurringKey;
+      }
+
+      if (leftRecurringKey !== null || rightRecurringKey !== null) {
+        return leftRecurringKey !== null ? -1 : 1;
+      }
+
       if (leftTimestamp !== rightTimestamp) {
         return rightTimestamp - leftTimestamp;
       }
@@ -181,6 +209,55 @@ function sortConferencesByDeadline(conferences: Conference[]) {
 
     return left.name.localeCompare(right.name);
   });
+}
+
+function getRecurringDeadlineKey(conference: Conference, currentDate: Date) {
+  const parts = parseDeadlineParts(conference.deadline);
+
+  if (!parts) {
+    return null;
+  }
+
+  const currentMonth = currentDate.getMonth();
+  const currentDay = currentDate.getDate();
+  const deadlineMonthIndex = parts.month - 1;
+  const deadlineDay = parts.day;
+  const occursLaterThisYear =
+    deadlineMonthIndex > currentMonth || (deadlineMonthIndex === currentMonth && deadlineDay > currentDay);
+  const targetYear = occursLaterThisYear ? currentDate.getFullYear() : currentDate.getFullYear() + 1;
+
+  return Date.UTC(
+    targetYear,
+    deadlineMonthIndex,
+    deadlineDay,
+    parts.hour,
+    parts.minute,
+    parts.second,
+  );
+}
+
+function parseDeadlineParts(deadline: string | null) {
+  if (!deadline) {
+    return null;
+  }
+
+  const match = deadline
+    .trim()
+    .match(/^(\d{4})-(\d{2})-(\d{2})(?:[ T](\d{2}):(\d{2})(?::(\d{2}))?)?$/);
+
+  if (!match) {
+    return null;
+  }
+
+  const [, , month, day, hour = "23", minute = "59", second = "59"] = match;
+
+  return {
+    month: Number(month),
+    day: Number(day),
+    hour: Number(hour),
+    minute: Number(minute),
+    second: Number(second),
+  };
 }
 
 function mapThread(row: ThreadRow, profile?: ProfileRow | null): CommunityThread {
